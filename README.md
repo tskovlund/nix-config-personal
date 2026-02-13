@@ -59,7 +59,7 @@ To create your own personal flake for use with nix-config:
 4. Point nix-config at your flake:
    ```sh
    mkdir -p ~/.config/nix-config
-   echo "github:your-user/your-personal-flake" > ~/.config/nix-config/personal-input
+   echo "git+ssh://git@github.com/your-user/your-personal-flake" > ~/.config/nix-config/personal-input
    ```
 5. Run `make switch` in nix-config
 
