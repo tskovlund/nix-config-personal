@@ -1,13 +1,21 @@
 # nix-config-personal
 
-Private identity and config for [nix-config](https://github.com/tskovlund/nix-config).
+Private identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
 ## Structure
 
 ```
 nix-config-personal/
-├── flake.nix       # Exports identity (and future: secrets, dotfiles)
-├── identity.nix    # Username, name, email
+├── flake.nix           # Exports identity + homeModules
+├── identity.nix        # Username, name, email
+├── home/
+│   ├── default.nix     # Module list (imported by nix-config as homeModules)
+│   └── github.nix      # GitHub SSH key, commit signing, protocol rewrite
+├── secrets/
+│   ├── secrets.nix     # Agenix recipients (age public keys)
+│   └── *.age           # Encrypted secrets
+├── files/
+│   └── *.pub           # SSH public keys (plaintext)
 └── README.md
 ```
 
@@ -17,14 +25,14 @@ nix-config declares `inputs.personal` which defaults to a stub. On real machines
 
 ```sh
 mkdir -p ~/.config/nix-config
-echo "github:tskovlund/nix-config-personal" > ~/.config/nix-config/personal-input
+echo "git+ssh://git@github.com/tskovlund/nix-config-personal" > ~/.config/nix-config/personal-input
 ```
 
-Then `make switch` in nix-config automatically passes `--override-input personal github:tskovlund/nix-config-personal`.
+Then `make switch` in nix-config automatically passes `--override-input personal <url>`.
 
-## Identity interface
+## Exports
 
-The `identity` attribute set is consumed by nix-config modules:
+### identity
 
 | Field      | Type   | Description                                              |
 |------------|--------|----------------------------------------------------------|
@@ -33,35 +41,43 @@ The `identity` attribute set is consumed by nix-config modules:
 | `fullName` | `str`  | Git commit author name                                   |
 | `email`    | `str`  | Git commit email address                                 |
 
+### homeModules
+
+List of home-manager modules imported by nix-config's personal targets. Currently includes:
+
+- **github.nix** — SSH key decryption via agenix, GitHub host routing, commit signing, SSH protocol rewrite
+
+## Secrets
+
+Secrets use [agenix](https://github.com/ryantm/agenix). A single portable age key decrypts everything.
+
+| Secret | Purpose | Decrypted to |
+|--------|---------|-------------|
+| `id_ed25519_github.age` | GitHub SSH authentication + commit signing | `~/.ssh/id_ed25519_github` |
+
+### Prerequisites
+
+The age key must exist at `~/.config/agenix/age-key.txt` before `make switch` can decrypt secrets. It's generated once and copied to new machines manually. See nix-config's `bootstrap.sh` for automated generation.
+
 ## Creating your own personal flake
 
-To create your own personal flake for use with nix-config:
-
 1. Create a new repo with `flake.nix` and `identity.nix`
-2. `flake.nix` must export an `identity` attribute:
+2. `flake.nix` must export `identity` and `homeModules`:
    ```nix
    {
      description = "Personal identity for nix-config";
      outputs = { ... }: {
        identity = import ./identity.nix;
+       homeModules = [ ];  # add modules as needed
      };
    }
    ```
-3. `identity.nix` must contain all four fields:
-   ```nix
-   {
-     isStub = false;
-     username = "your-username";
-     fullName = "Your Name";
-     email = "you@example.com";
-   }
-   ```
-4. Point nix-config at your flake:
+3. Point nix-config at your flake:
    ```sh
    mkdir -p ~/.config/nix-config
    echo "git+ssh://git@github.com/your-user/your-personal-flake" > ~/.config/nix-config/personal-input
    ```
-5. Run `make switch` in nix-config
+4. Run `make switch` in nix-config
 
 ## CI
 
@@ -69,10 +85,4 @@ PRs run `nix flake check` on Ubuntu via GitHub Actions to validate the flake str
 
 ## Known limitations
 
-- **No branch protection.** Rulesets and branch protection require GitHub Pro for private repos. Self-discipline replaces automation here.
-
-## Future additions
-
-- agenix secrets (SSH keys, API tokens)
-- Personal dotfiles (`~/.claude/CLAUDE.md`, etc.)
-- Per-host identity overrides
+- **No branch protection.** Rulesets and branch protection require GitHub Pro for private repos.
