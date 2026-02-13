@@ -38,8 +38,8 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 ### Adding a new secret
 
 1. Add the entry to `secrets/secrets.nix`
-2. Encrypt: `age -r <pubkey> -o secrets/<name>.age <plaintext-file>`
-   Or with agenix CLI: `agenix -e secrets/<name>.age`
+2. Encrypt with the agenix CLI (recommended — reads recipients from `secrets/secrets.nix`): `agenix -e secrets/<name>.age`
+   Or manually: `age -r <pubkey-from-secrets.nix> -o secrets/<name>.age <plaintext-file>`
 3. Declare `age.secrets.<name>` in a home-manager module under `home/`
 4. Reference the decrypted path via `config.age.secrets.<name>.path`
 

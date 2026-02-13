@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, identity, ... }:
 
 let
   keyName = "id_ed25519_github";
@@ -6,7 +6,7 @@ let
 in
 {
   # Decrypt SSH private key via agenix.
-  # The .age file is encrypted against the machine's age key.
+  # The .age file is encrypted against the portable age key.
   age.secrets.${keyName} = {
     file = ../secrets/${keyName}.age;
     path = "${homeDir}/.ssh/${keyName}";
@@ -44,7 +44,7 @@ in
     let
       pubKey = builtins.readFile ../files/${keyName}.pub;
     in
-    "thomas@skovlund.dev ${pubKey}";
+    "${identity.email} ${pubKey}";
 
   # GitHub CLI: use SSH protocol
   programs.gh.settings.git_protocol = "ssh";
