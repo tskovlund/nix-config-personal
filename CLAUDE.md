@@ -61,6 +61,16 @@ To update:
 
 The file is read-only on disk (agenix symlink). Changes go through version control.
 
+## Development
+
+The flake provides a dev shell with `nixfmt`, `statix`, and `deadnix`. Enter it with `nix develop` or automatically via direnv (`.envrc`).
+
+Commit hooks (`.githooks/`) are activated by the dev shell:
+- **pre-commit**: formats staged `.nix` files with `nixfmt`, lints with `statix`
+- **pre-push**: runs `nix flake check --all-systems`
+
+Git commands that trigger hooks require dev shell tools. Prefix with `nix develop --command` if not already in the dev shell.
+
 ## Git workflow
 
 Same conventions as nix-config:
