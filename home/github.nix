@@ -45,7 +45,4 @@ in
       pubKey = builtins.readFile ../files/${keyName}.pub;
     in
     "${identity.email} ${pubKey}";
-
-  # GitHub CLI: use SSH protocol
-  programs.gh.settings.git_protocol = "ssh";
 }

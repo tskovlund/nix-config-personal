@@ -1,3 +1,4 @@
 [
   ./github.nix
+  ./dotfiles.nix
 ]
