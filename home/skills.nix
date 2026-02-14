@@ -18,9 +18,9 @@ in
       mode = "0644";
     };
 
-    skill-pr-review-loop = {
-      file = ../secrets/skill-pr-review-loop.age;
-      path = "${skillsDir}/pr-review-loop/SKILL.md";
+    skill-pr-review = {
+      file = ../secrets/skill-pr-review.age;
+      path = "${skillsDir}/pr-review/SKILL.md";
       mode = "0644";
     };
 
@@ -39,6 +39,18 @@ in
     skill-evolve = {
       file = ../secrets/skill-evolve.age;
       path = "${skillsDir}/skill-evolve/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-linear-track = {
+      file = ../secrets/skill-linear-track.age;
+      path = "${skillsDir}/linear-track/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-add = {
+      file = ../secrets/skill-add.age;
+      path = "${skillsDir}/skill-add/SKILL.md";
       mode = "0644";
     };
   };

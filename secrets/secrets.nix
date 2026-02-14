@@ -21,8 +21,10 @@ in
   # Claude Code personal skills
   "skill-linear-triage.age".publicKeys = [ thomas ];
   "skill-linear-hygiene.age".publicKeys = [ thomas ];
-  "skill-pr-review-loop.age".publicKeys = [ thomas ];
+  "skill-pr-review.age".publicKeys = [ thomas ];
   "skill-planning.age".publicKeys = [ thomas ];
   "skill-memory-manage.age".publicKeys = [ thomas ];
   "skill-evolve.age".publicKeys = [ thomas ];
+  "skill-linear-track.age".publicKeys = [ thomas ];
+  "skill-add.age".publicKeys = [ thomas ];
 }
