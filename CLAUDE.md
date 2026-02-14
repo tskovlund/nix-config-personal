@@ -51,13 +51,15 @@ Keys follow `id_ed25519_<purpose>`:
 
 ## Updating ~/.claude/CLAUDE.md
 
-The global Claude Code instructions file will be managed by this flake (deployed via `home.file`). To update it:
+The global Claude Code instructions file is agenix-encrypted (`secrets/CLAUDE.md.age`) and decrypted on `make switch`. The plaintext source at `files/CLAUDE.md` is gitignored — only the `.age` file is committed.
 
-1. Edit the source file in this repo
-2. Commit and push
-3. Run `make switch` in nix-config — the file is deployed as a symlink to the Nix store
+To update:
 
-The file is read-only on disk (Nix store symlink). This is intentional — changes go through version control.
+1. `agenix -e secrets/CLAUDE.md.age` — decrypts, opens in `$EDITOR`, re-encrypts on save
+2. Commit and push the updated `.age` file
+3. Run `make switch` in nix-config to deploy
+
+The file is read-only on disk (agenix symlink). Changes go through version control.
 
 ## Git workflow
 

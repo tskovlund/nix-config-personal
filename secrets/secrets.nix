@@ -16,4 +16,5 @@ let
 in
 {
   "id_ed25519_github.age".publicKeys = [ thomas ];
+  "CLAUDE.md.age".publicKeys = [ thomas ];
 }
