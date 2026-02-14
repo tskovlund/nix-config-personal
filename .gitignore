@@ -2,3 +2,4 @@
 # These are local working copies used for editing/re-encrypting.
 # Only the .age files should be committed.
 files/CLAUDE.md
+files/skill-*.md
