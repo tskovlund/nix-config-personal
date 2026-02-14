@@ -1,6 +1,6 @@
 # CLAUDE.md — nix-config-personal
 
-Private identity, secrets, and personal config for [nix-config](https://github.com/tskovlund/nix-config).
+Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
 ## What this repo is
 
@@ -66,9 +66,9 @@ Same conventions as nix-config:
 - **Direct to main** for small changes (this repo is tiny — most changes are direct)
 - **Branch + PR** if adding significant new functionality
 
-## No branch protection
+## Branch protection
 
-This is a private repo on a free GitHub plan. Branch protection and rulesets are unavailable. Be careful pushing to main — there's no safety net.
+Same setup as nix-config: "Protect main" ruleset with no force push (owner can bypass), no deletion, Copilot auto-review, and required CI status checks.
 
 ## Testing
 

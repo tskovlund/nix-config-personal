@@ -1,6 +1,6 @@
 # nix-config-personal
 
-Private identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
+Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
 ## Structure
 
@@ -83,6 +83,6 @@ The age key must exist at `~/.config/agenix/age-key.txt` before `make switch` ca
 
 PRs run `nix flake check` on Ubuntu via GitHub Actions to validate the flake structure.
 
-## Known limitations
+## Branch protection
 
-- **No branch protection.** Rulesets and branch protection require GitHub Pro for private repos.
+The "Protect main" ruleset enforces: no force push (owner can bypass), no branch deletion, Copilot auto-review on PRs, and required CI status checks.
