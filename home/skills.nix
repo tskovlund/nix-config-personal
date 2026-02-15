@@ -15,6 +15,7 @@ let
     "memory-manage"
     "skill-evolve"
     "skill-add"
+    "skill-update"
     "repo-sync"
   ];
 
@@ -73,6 +74,12 @@ in
     skill-repo-sync = {
       file = ../secrets/skill-repo-sync.age;
       path = "${skillsDir}/repo-sync/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-update = {
+      file = ../secrets/skill-update.age;
+      path = "${skillsDir}/skill-update/SKILL.md";
       mode = "0644";
     };
   };

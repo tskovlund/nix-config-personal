@@ -28,4 +28,5 @@ in
   "skill-evolve.age".publicKeys = [ thomas ];
   "skill-add.age".publicKeys = [ thomas ];
   "skill-repo-sync.age".publicKeys = [ thomas ];
+  "skill-update.age".publicKeys = [ thomas ];
 }
