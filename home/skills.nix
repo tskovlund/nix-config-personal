@@ -12,7 +12,8 @@ let
     "issue-track"
     "pr-review"
     "planning"
-    "memory-manage"
+    "memory-recall"
+    "memory-store"
     "skill-evolve"
     "skill-add"
     "skill-update"
@@ -53,9 +54,15 @@ in
       mode = "0644";
     };
 
-    skill-memory-manage = {
-      file = ../secrets/skill-memory-manage.age;
-      path = "${skillsDir}/memory-manage/SKILL.md";
+    skill-memory-recall = {
+      file = ../secrets/skill-memory-recall.age;
+      path = "${skillsDir}/memory-recall/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-memory-store = {
+      file = ../secrets/skill-memory-store.age;
+      path = "${skillsDir}/memory-store/SKILL.md";
       mode = "0644";
     };
 

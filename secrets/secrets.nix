@@ -24,7 +24,8 @@ in
   "skill-issue-track.age".publicKeys = [ thomas ];
   "skill-pr-review.age".publicKeys = [ thomas ];
   "skill-planning.age".publicKeys = [ thomas ];
-  "skill-memory-manage.age".publicKeys = [ thomas ];
+  "skill-memory-recall.age".publicKeys = [ thomas ];
+  "skill-memory-store.age".publicKeys = [ thomas ];
   "skill-evolve.age".publicKeys = [ thomas ];
   "skill-add.age".publicKeys = [ thomas ];
   "skill-repo-sync.age".publicKeys = [ thomas ];
