@@ -15,6 +15,7 @@ let
     "memory-manage"
     "skill-evolve"
     "skill-add"
+    "repo-sync"
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
@@ -66,6 +67,12 @@ in
     skill-add = {
       file = ../secrets/skill-add.age;
       path = "${skillsDir}/skill-add/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-repo-sync = {
+      file = ../secrets/skill-repo-sync.age;
+      path = "${skillsDir}/repo-sync/SKILL.md";
       mode = "0644";
     };
   };
