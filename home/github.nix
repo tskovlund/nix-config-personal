@@ -54,10 +54,16 @@ in
     ];
   };
 
-  # Allowed signers file for signature verification
+  # Allowed signers file for signature verification.
+  # Include both personal (ed25519) and work (RSA) keys so that
+  # `git log --show-signature` verifies commits from either identity.
   home.file.".ssh/allowed_signers".text =
     let
-      pubKey = builtins.readFile ../files/${keyName}.pub;
+      personalPubKey = builtins.readFile ../files/${keyName}.pub;
+      workPubKey = builtins.readFile ../files/id_rsa_github.pub;
     in
-    "${identity.email} ${pubKey}";
+    ''
+      ${identity.email} ${personalPubKey}
+      tha@danskecommodities.com ${workPubKey}
+    '';
 }
