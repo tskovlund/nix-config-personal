@@ -37,6 +37,21 @@ in
       # Force SSH for all GitHub URLs (HTTPS clone URLs become SSH transparently)
       url."git@github.com:".insteadOf = "https://github.com/";
     };
+
+    # Work identity override for dc-main repos.
+    # When a repo has a remote matching dc-main, use the work email and
+    # the work RSA signing key (deployed via ~/.ssh/config.local on work machines).
+    includes = [
+      {
+        condition = "hasconfig:remote.*.url:git@github.com:dc-main/**";
+        contents = {
+          user = {
+            email = "tha@danskecommodities.com";
+            signingKey = "${homeDir}/.ssh/id_rsa_github.pub";
+          };
+        };
+      }
+    ];
   };
 
   # Allowed signers file for signature verification
