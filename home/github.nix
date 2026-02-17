@@ -43,7 +43,9 @@ in
     # the work RSA signing key (deployed via ~/.ssh/config.local on work machines).
     includes = [
       {
-        condition = "hasconfig:remote.*.url:git@github.com:dc-main/**";
+        # Match the HTTPS form — git's hasconfig resolves through
+        # url.*.insteadOf, so even SSH-cloned repos match this pattern.
+        condition = "hasconfig:remote.*.url:https://github.com/dc-main/**";
         contents = {
           user = {
             email = "tha@danskecommodities.com";
