@@ -47,7 +47,8 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 
 Keys follow `id_ed25519_<purpose>`:
 - `id_ed25519_github` — GitHub authentication + commit signing
-- Future: `id_ed25519_server`, `id_ed25519_work`, etc.
+- `id_ed25519_miles` — Hetzner VPS (miles) SSH access + deployment
+- Future: `id_ed25519_<hostname>` for additional hosts, `id_ed25519_work`, etc.
 
 ## Updating ~/.claude/CLAUDE.md
 
