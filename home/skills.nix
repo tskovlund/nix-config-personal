@@ -18,6 +18,7 @@ let
     "skill-add"
     "skill-update"
     "repo-sync"
+    "docs"
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
@@ -87,6 +88,12 @@ in
     skill-update = {
       file = ../secrets/skill-update.age;
       path = "${skillsDir}/skill-update/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-docs = {
+      file = ../secrets/skill-docs.age;
+      path = "${skillsDir}/docs/SKILL.md";
       mode = "0644";
     };
   };
