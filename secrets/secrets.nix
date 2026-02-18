@@ -18,6 +18,7 @@ in
   "id_ed25519_github.age".publicKeys = [ thomas ];
   "id_ed25519_miles.age".publicKeys = [ thomas ];
   "CLAUDE.md.age".publicKeys = [ thomas ];
+  "resend-api-key.age".publicKeys = [ thomas ];
 
   # Claude Code personal skills
   "skill-issue-triage.age".publicKeys = [ thomas ];
