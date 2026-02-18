@@ -15,8 +15,9 @@ in
   # Deploy the public key (not secret, committed in plaintext)
   home.file.".ssh/${keyName}.pub".source = ../files/${keyName}.pub;
 
-  # SSH host entry — routes `ssh miles` and deploy targets to the VPS
-  programs.ssh.matchBlocks."miles" = {
+  # SSH host entry — matches both `ssh miles` and direct IP connections
+  # (e.g. make deploy-miles which uses root@46.225.116.48)
+  programs.ssh.matchBlocks."miles 46.225.116.48" = {
     hostname = "46.225.116.48";
     user = "root";
     identityFile = "${homeDir}/.ssh/${keyName}";
