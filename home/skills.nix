@@ -11,6 +11,7 @@ let
     "issue-hygiene"
     "issue-track"
     "pr-review"
+    "pr-address-feedback-loop"
     "planning"
     "memory-recall"
     "memory-store"
@@ -46,6 +47,12 @@ in
     skill-pr-review = {
       file = ../secrets/skill-pr-review.age;
       path = "${skillsDir}/pr-review/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-pr-address-feedback-loop = {
+      file = ../secrets/skill-pr-address-feedback-loop.age;
+      path = "${skillsDir}/pr-address-feedback-loop/SKILL.md";
       mode = "0644";
     };
 
