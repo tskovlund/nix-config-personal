@@ -4,7 +4,7 @@
 ## Test plan
 
 - [ ] `nix flake check` passes
-- [ ] CI passes
+- [ ] `make switch` tested locally
 
 ## Related issues
 
