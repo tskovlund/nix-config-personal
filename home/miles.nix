@@ -15,9 +15,16 @@ in
   # Deploy the public key (not secret, committed in plaintext)
   home.file.".ssh/${keyName}.pub".source = ../files/${keyName}.pub;
 
-  # SSH host entries — matches both `ssh miles` and direct IP connections
-  # (e.g. make deploy-miles which uses root@46.225.116.48)
-  programs.ssh.matchBlocks."miles 46.225.116.48" = {
+  # SSH host entries — primary access via Tailscale, direct IP for emergencies.
+  # `ssh miles` / `ssh root@miles` → Tailscale (default, used by make deploy-miles)
+  # `ssh miles-direct` → public IP (emergency only, requires port 22 re-enabled in NixOS firewall)
+  programs.ssh.matchBlocks."miles 100.100.125.93" = {
+    hostname = "100.100.125.93";
+    identityFile = "${homeDir}/.ssh/${keyName}";
+    identitiesOnly = true;
+  };
+
+  programs.ssh.matchBlocks."miles-direct 46.225.116.48" = {
     hostname = "46.225.116.48";
     identityFile = "${homeDir}/.ssh/${keyName}";
     identitiesOnly = true;
