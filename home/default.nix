@@ -4,7 +4,7 @@
   ./resend.nix
   ./cloudflare.nix
   ./grafana.nix
-  # ./restic.nix  # uncomment after: agenix -e secrets/restic-{b2-env,password}.age
+  ./restic.nix
   ./dotfiles.nix
   ./skills.nix
 ]
