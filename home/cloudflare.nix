@@ -10,7 +10,7 @@
   };
 
   # Export CF_API_TOKEN so flarectl picks it up automatically
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     if [ -f ~/.config/cloudflare/api-token ]; then
       export CF_API_TOKEN="$(cat ~/.config/cloudflare/api-token)"
     fi
