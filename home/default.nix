@@ -3,6 +3,7 @@
   ./miles.nix
   ./resend.nix
   ./cloudflare.nix
+  ./grafana.nix
   ./dotfiles.nix
   ./skills.nix
 ]
