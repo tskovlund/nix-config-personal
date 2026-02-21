@@ -1,5 +1,7 @@
 # nix-config-personal
 
+[![Check](https://github.com/tskovlund/nix-config-personal/workflows/Check/badge.svg)](https://github.com/tskovlund/nix-config-personal/actions/workflows/check.yml)
+
 Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
 ## Structure
