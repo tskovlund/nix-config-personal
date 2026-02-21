@@ -1,6 +1,8 @@
 # nix-config-personal
 
 [![Check](https://github.com/tskovlund/nix-config-personal/workflows/Check/badge.svg)](https://github.com/tskovlund/nix-config-personal/actions/workflows/check.yml)
+[![Nix Flakes](https://img.shields.io/badge/Nix-Flakes-blue?logo=nixos&logoColor=white)](https://nixos.wiki/wiki/Flakes)
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org)
 
 Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
