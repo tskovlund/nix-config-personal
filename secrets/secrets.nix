@@ -23,7 +23,6 @@ in
   "grafana-service-account-token.age".publicKeys = [ thomas ];
   "restic-b2-env.age".publicKeys = [ thomas ];
   "restic-password.age".publicKeys = [ thomas ];
-  "id_ed25519_eliza_signing.age".publicKeys = [ thomas ];
   "cambr-anthropic-api-key.age".publicKeys = [ thomas ];
 
   # Claude Code personal skills
