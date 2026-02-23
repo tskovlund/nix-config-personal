@@ -1,10 +1,11 @@
 [
+  ./cambr.nix
+  ./cloudflare.nix
+  ./dotfiles.nix
   ./github.nix
+  ./grafana.nix
   ./miles.nix
   ./resend.nix
-  ./cloudflare.nix
-  ./grafana.nix
   ./restic.nix
-  ./dotfiles.nix
   ./skills.nix
 ]
