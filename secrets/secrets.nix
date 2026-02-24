@@ -24,6 +24,9 @@ in
   "restic-b2-env.age".publicKeys = [ thomas ];
   "restic-password.age".publicKeys = [ thomas ];
   "cambr-anthropic-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-telegram-bot-token.age".publicKeys = [ thomas ];
+  "zeroclaw-gateway-token.age".publicKeys = [ thomas ];
 
   # Claude Code personal skills
   "skill-issue-triage.age".publicKeys = [ thomas ];
