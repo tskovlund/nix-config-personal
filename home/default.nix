@@ -1,4 +1,5 @@
 [
+  ./agenix-darwin-workaround.nix
   ./cambr.nix
   ./cloudflare.nix
   ./dotfiles.nix
