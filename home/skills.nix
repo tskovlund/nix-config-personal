@@ -28,28 +28,21 @@ let
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
+
+  # Helper: create a skill home.file entry with force = true.
+  # Force is needed because agenix may have created symlinks at the same paths.
+  mkSkill = name: {
+    ".claude/skills/${name}/SKILL.md" = {
+      source = ../skills/${name}.md;
+      force = true;
+    };
+  };
+
+  # Merge all skill entries into a single attrset.
+  skillFiles = lib.foldl' (acc: name: acc // mkSkill name) { } managedSkills;
 in
 {
-  home.file = {
-    ".claude/skills/issue-triage/SKILL.md".source = ../skills/issue-triage.md;
-    ".claude/skills/issue-hygiene/SKILL.md".source = ../skills/issue-hygiene.md;
-    ".claude/skills/issue-track/SKILL.md".source = ../skills/issue-track.md;
-    ".claude/skills/pr-review/SKILL.md".source = ../skills/pr-review.md;
-    ".claude/skills/pr-review-loop/SKILL.md".source = ../skills/pr-review-loop.md;
-    ".claude/skills/pr-fix/SKILL.md".source = ../skills/pr-fix.md;
-    ".claude/skills/planning/SKILL.md".source = ../skills/planning.md;
-    ".claude/skills/memory-recall/SKILL.md".source = ../skills/memory-recall.md;
-    ".claude/skills/memory-store/SKILL.md".source = ../skills/memory-store.md;
-    ".claude/skills/skill-evolve/SKILL.md".source = ../skills/skill-evolve.md;
-    ".claude/skills/skill-add/SKILL.md".source = ../skills/skill-add.md;
-    ".claude/skills/skill-update/SKILL.md".source = ../skills/skill-update.md;
-    ".claude/skills/repo-sync/SKILL.md".source = ../skills/repo-sync.md;
-    ".claude/skills/docs/SKILL.md".source = ../skills/docs.md;
-    ".claude/skills/skill-write/SKILL.md".source = ../skills/skill-write.md;
-    ".claude/skills/test-write/SKILL.md".source = ../skills/test-write.md;
-    ".claude/skills/dep-update/SKILL.md".source = ../skills/dep-update.md;
-    ".claude/skills/onboard/SKILL.md".source = ../skills/onboard.md;
-  };
+  home.file = skillFiles;
 
   # Clean up stale skill directories after renames.
   # When a skill is renamed, home-manager creates the new directory but doesn't
