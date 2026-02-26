@@ -44,4 +44,7 @@ in
   "skill-update.age".publicKeys = [ thomas ];
   "skill-docs.age".publicKeys = [ thomas ];
   "skill-write.age".publicKeys = [ thomas ];
+  "skill-test-write.age".publicKeys = [ thomas ];
+  "skill-dep-update.age".publicKeys = [ thomas ];
+  "skill-onboard.age".publicKeys = [ thomas ];
 }

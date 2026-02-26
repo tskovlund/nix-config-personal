@@ -22,6 +22,9 @@ let
     "repo-sync"
     "docs"
     "skill-write"
+    "test-write"
+    "dep-update"
+    "onboard"
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
@@ -115,6 +118,24 @@ in
     skill-write = {
       file = ../secrets/skill-write.age;
       path = "${skillsDir}/skill-write/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-test-write = {
+      file = ../secrets/skill-test-write.age;
+      path = "${skillsDir}/test-write/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-dep-update = {
+      file = ../secrets/skill-dep-update.age;
+      path = "${skillsDir}/dep-update/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-onboard = {
+      file = ../secrets/skill-onboard.age;
+      path = "${skillsDir}/onboard/SKILL.md";
       mode = "0644";
     };
   };
