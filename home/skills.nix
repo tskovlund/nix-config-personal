@@ -30,121 +30,32 @@ let
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
 in
 {
-  age.secrets = {
-    skill-issue-triage = {
-      file = ../secrets/skill-issue-triage.age;
-      path = "${skillsDir}/issue-triage/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-issue-hygiene = {
-      file = ../secrets/skill-issue-hygiene.age;
-      path = "${skillsDir}/issue-hygiene/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-issue-track = {
-      file = ../secrets/skill-issue-track.age;
-      path = "${skillsDir}/issue-track/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-pr-review = {
-      file = ../secrets/skill-pr-review.age;
-      path = "${skillsDir}/pr-review/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-pr-review-loop = {
-      file = ../secrets/skill-pr-review-loop.age;
-      path = "${skillsDir}/pr-review-loop/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-pr-fix = {
-      file = ../secrets/skill-pr-fix.age;
-      path = "${skillsDir}/pr-fix/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-planning = {
-      file = ../secrets/skill-planning.age;
-      path = "${skillsDir}/planning/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-memory-recall = {
-      file = ../secrets/skill-memory-recall.age;
-      path = "${skillsDir}/memory-recall/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-memory-store = {
-      file = ../secrets/skill-memory-store.age;
-      path = "${skillsDir}/memory-store/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-evolve = {
-      file = ../secrets/skill-evolve.age;
-      path = "${skillsDir}/skill-evolve/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-add = {
-      file = ../secrets/skill-add.age;
-      path = "${skillsDir}/skill-add/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-repo-sync = {
-      file = ../secrets/skill-repo-sync.age;
-      path = "${skillsDir}/repo-sync/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-update = {
-      file = ../secrets/skill-update.age;
-      path = "${skillsDir}/skill-update/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-docs = {
-      file = ../secrets/skill-docs.age;
-      path = "${skillsDir}/docs/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-write = {
-      file = ../secrets/skill-write.age;
-      path = "${skillsDir}/skill-write/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-test-write = {
-      file = ../secrets/skill-test-write.age;
-      path = "${skillsDir}/test-write/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-dep-update = {
-      file = ../secrets/skill-dep-update.age;
-      path = "${skillsDir}/dep-update/SKILL.md";
-      mode = "0644";
-    };
-
-    skill-onboard = {
-      file = ../secrets/skill-onboard.age;
-      path = "${skillsDir}/onboard/SKILL.md";
-      mode = "0644";
-    };
+  home.file = {
+    ".claude/skills/issue-triage/SKILL.md".source = ../skills/issue-triage.md;
+    ".claude/skills/issue-hygiene/SKILL.md".source = ../skills/issue-hygiene.md;
+    ".claude/skills/issue-track/SKILL.md".source = ../skills/issue-track.md;
+    ".claude/skills/pr-review/SKILL.md".source = ../skills/pr-review.md;
+    ".claude/skills/pr-review-loop/SKILL.md".source = ../skills/pr-review-loop.md;
+    ".claude/skills/pr-fix/SKILL.md".source = ../skills/pr-fix.md;
+    ".claude/skills/planning/SKILL.md".source = ../skills/planning.md;
+    ".claude/skills/memory-recall/SKILL.md".source = ../skills/memory-recall.md;
+    ".claude/skills/memory-store/SKILL.md".source = ../skills/memory-store.md;
+    ".claude/skills/skill-evolve/SKILL.md".source = ../skills/skill-evolve.md;
+    ".claude/skills/skill-add/SKILL.md".source = ../skills/skill-add.md;
+    ".claude/skills/skill-update/SKILL.md".source = ../skills/skill-update.md;
+    ".claude/skills/repo-sync/SKILL.md".source = ../skills/repo-sync.md;
+    ".claude/skills/docs/SKILL.md".source = ../skills/docs.md;
+    ".claude/skills/skill-write/SKILL.md".source = ../skills/skill-write.md;
+    ".claude/skills/test-write/SKILL.md".source = ../skills/test-write.md;
+    ".claude/skills/dep-update/SKILL.md".source = ../skills/dep-update.md;
+    ".claude/skills/onboard/SKILL.md".source = ../skills/onboard.md;
   };
 
   # Clean up stale skill directories after renames.
-  # When a skill is renamed, agenix creates the new directory but doesn't
+  # When a skill is renamed, home-manager creates the new directory but doesn't
   # remove the old one (it leaves a broken symlink). This activation removes
   # any directory in ~/.claude/skills/ that:
-  #   1. Contains a SKILL.md that is a symlink (i.e., agenix-managed)
+  #   1. Contains a SKILL.md that is a symlink (i.e., home-manager-managed)
   #   2. Is NOT in the current managedSkills list
   # Project skills (regular files, not symlinks) are never touched.
   home.activation.cleanStaleSkills = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
@@ -155,7 +66,7 @@ in
         name="$(basename "$dir")"
         skill_file="$dir/SKILL.md"
 
-        # Skip if not agenix-managed (no symlink = project skill)
+        # Skip if not home-manager-managed (no symlink = project skill)
         [ -L "$skill_file" ] || continue
 
         # Skip if in the managed list
@@ -163,7 +74,7 @@ in
           *" $name "*) continue ;;
         esac
 
-        # Stale agenix directory — remove it
+        # Stale home-manager directory — remove it
         run rm -rf "$dir"
       done
     fi

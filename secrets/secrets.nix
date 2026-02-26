@@ -27,24 +27,4 @@ in
   "zeroclaw-api-key.age".publicKeys = [ thomas ];
   "zeroclaw-telegram-bot-token.age".publicKeys = [ thomas ];
   "zeroclaw-gateway-token.age".publicKeys = [ thomas ];
-
-  # Claude Code personal skills
-  "skill-issue-triage.age".publicKeys = [ thomas ];
-  "skill-issue-hygiene.age".publicKeys = [ thomas ];
-  "skill-issue-track.age".publicKeys = [ thomas ];
-  "skill-pr-review.age".publicKeys = [ thomas ];
-  "skill-pr-review-loop.age".publicKeys = [ thomas ];
-  "skill-pr-fix.age".publicKeys = [ thomas ];
-  "skill-planning.age".publicKeys = [ thomas ];
-  "skill-memory-recall.age".publicKeys = [ thomas ];
-  "skill-memory-store.age".publicKeys = [ thomas ];
-  "skill-evolve.age".publicKeys = [ thomas ];
-  "skill-add.age".publicKeys = [ thomas ];
-  "skill-repo-sync.age".publicKeys = [ thomas ];
-  "skill-update.age".publicKeys = [ thomas ];
-  "skill-docs.age".publicKeys = [ thomas ];
-  "skill-write.age".publicKeys = [ thomas ];
-  "skill-test-write.age".publicKeys = [ thomas ];
-  "skill-dep-update.age".publicKeys = [ thomas ];
-  "skill-onboard.age".publicKeys = [ thomas ];
 }
