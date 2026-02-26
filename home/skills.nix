@@ -11,7 +11,8 @@ let
     "issue-hygiene"
     "issue-track"
     "pr-review"
-    "pr-address-feedback-loop"
+    "pr-review-loop"
+    "pr-fix"
     "planning"
     "memory-recall"
     "memory-store"
@@ -20,6 +21,7 @@ let
     "skill-update"
     "repo-sync"
     "docs"
+    "skill-write"
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
@@ -50,9 +52,15 @@ in
       mode = "0644";
     };
 
-    skill-pr-address-feedback-loop = {
-      file = ../secrets/skill-pr-address-feedback-loop.age;
-      path = "${skillsDir}/pr-address-feedback-loop/SKILL.md";
+    skill-pr-review-loop = {
+      file = ../secrets/skill-pr-review-loop.age;
+      path = "${skillsDir}/pr-review-loop/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-pr-fix = {
+      file = ../secrets/skill-pr-fix.age;
+      path = "${skillsDir}/pr-fix/SKILL.md";
       mode = "0644";
     };
 
@@ -101,6 +109,12 @@ in
     skill-docs = {
       file = ../secrets/skill-docs.age;
       path = "${skillsDir}/docs/SKILL.md";
+      mode = "0644";
+    };
+
+    skill-write = {
+      file = ../secrets/skill-write.age;
+      path = "${skillsDir}/skill-write/SKILL.md";
       mode = "0644";
     };
   };
