@@ -1,7 +1,7 @@
-# Code Standards
+# Code Conventions
 
-Canonical standards for all repositories maintained by Thomas Skovlund Hansen.
-Deployed to `~/.claude/standards.md` via home-manager. Referenced by the global
+Canonical conventions for all repositories maintained by Thomas Skovlund Hansen.
+Deployed to `~/.claude/CONVENTIONS.md` via home-manager. Referenced by the global
 CLAUDE.md so every Claude Code session has access.
 
 Per-repo docs (CLAUDE.md, CONTRIBUTING.md) should include the relevant,

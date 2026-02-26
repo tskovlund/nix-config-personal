@@ -13,8 +13,8 @@ in
     mode = "0644";
   };
 
-  # Code standards — plain file (not secret), deployed to ~/.claude/standards.md.
+  # Code conventions — plain file (not secret), deployed to ~/.claude/CONVENTIONS.md.
   # Referenced by the global CLAUDE.md so every Claude Code session has access.
-  # To update: edit files/standards.md, commit, and `make switch`.
-  home.file.".claude/standards.md".source = ../files/standards.md;
+  # To update: edit files/CONVENTIONS.md, commit, and `make switch`.
+  home.file.".claude/CONVENTIONS.md".source = ../files/CONVENTIONS.md;
 }
