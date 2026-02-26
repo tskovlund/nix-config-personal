@@ -115,7 +115,9 @@ to this global file.
 - **Follow established conventions per language/framework** — `src/` layout in
   Python, standard framework structures elsewhere
 - **AGENTS.md in every repo** with a CLAUDE.md symlink — the canonical file for
-  AI agent instructions, with the symlink ensuring Claude Code picks it up
+  AI agent instructions, with the symlink ensuring Claude Code picks it up.
+  Each AGENTS.md should reference `~/.claude/standards.md` for the full
+  standards manifest
 - **Automate enforcement** — CI checks, pre-commit/pre-push hooks, linting,
   and type checking should enforce every rule that can be checked automatically
 - **Conventions belong in the repo** — each repo includes the relevant,
