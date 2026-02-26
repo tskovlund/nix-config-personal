@@ -116,8 +116,7 @@ to this global file.
   Python, standard framework structures elsewhere
 - **AGENTS.md in every repo** with a CLAUDE.md symlink — the canonical file for
   AI agent instructions, with the symlink ensuring Claude Code picks it up.
-  Each AGENTS.md should reference `~/.claude/standards.md` for the full
-  standards manifest
+  Each AGENTS.md should reference the repo's own copy of the relevant standards
 - **Shared CI via `tskovlund/.github`** — reusable workflows, default
   Dependabot config, and community health files. Repos reference shared
   workflows instead of duplicating CI configuration
