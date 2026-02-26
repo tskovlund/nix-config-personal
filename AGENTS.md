@@ -74,13 +74,6 @@ Commit hooks (`.githooks/`) are activated by the dev shell:
 
 Git commands that trigger hooks require dev shell tools. Prefix with `nix develop --command` if not already in the dev shell.
 
-## Git workflow
-
-Same conventions as nix-config:
-- **Conventional commits** (`feat`, `fix`, `docs`, `chore`)
-- **Direct to main** for small changes (this repo is tiny — most changes are direct)
-- **Branch + PR** if adding significant new functionality
-
 ## Branch protection
 
 Same setup as nix-config: "Protect main" ruleset with no force push (owner can bypass), no deletion, Copilot auto-review, and required CI status checks.
