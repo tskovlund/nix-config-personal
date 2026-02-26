@@ -26,7 +26,7 @@
 {
   home.activation.cleanStaleAgenixGenerations = lib.mkIf pkgs.stdenv.isDarwin (
     lib.hm.dag.entryBefore [ "setupLaunchAgents" ] ''
-      _tmpdir="$(getconf DARWIN_USER_TEMP_DIR)"
+      _tmpdir="$(/usr/bin/getconf DARWIN_USER_TEMP_DIR)"
       _agenix_link="$_tmpdir/agenix"
       _agenix_dir="$_tmpdir/agenix.d"
 
