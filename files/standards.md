@@ -115,6 +115,9 @@ to this global file.
   where the README already covers everything, `docs/` is not required
 - **CONTRIBUTING.md** when external contributors are expected — references
   CONVENTIONS.md for standards, covers dev setup and PR process
+- **Author and License at the bottom of every README** — licensed repos must
+  have an Author section followed by a License section linking to the LICENSE
+  file
 
 ## Project Structure
 
