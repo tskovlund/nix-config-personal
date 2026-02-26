@@ -118,6 +118,9 @@ to this global file.
   AI agent instructions, with the symlink ensuring Claude Code picks it up.
   Each AGENTS.md should reference `~/.claude/standards.md` for the full
   standards manifest
+- **Shared CI via `tskovlund/.github`** — reusable workflows, default
+  Dependabot config, and community health files. Repos reference shared
+  workflows instead of duplicating CI configuration
 - **Automate enforcement** — CI checks, pre-commit/pre-push hooks, linting,
   and type checking should enforce every rule that can be checked automatically
 - **Conventions belong in the repo** — each repo includes the relevant,
