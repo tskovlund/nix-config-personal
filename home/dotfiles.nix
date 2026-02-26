@@ -12,4 +12,9 @@ in
     path = "${homeDir}/.claude/CLAUDE.md";
     mode = "0644";
   };
+
+  # Code standards — plain file (not secret), deployed to ~/.claude/standards.md.
+  # Referenced by the global CLAUDE.md so every Claude Code session has access.
+  # To update: edit files/standards.md, commit, and `make switch`.
+  home.file.".claude/standards.md".source = ../files/standards.md;
 }
