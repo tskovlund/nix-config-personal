@@ -2,6 +2,8 @@
 
 Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
+Follow the code standards in [CONVENTIONS.md](CONVENTIONS.md).
+
 ## What this repo is
 
 This flake exports two things that nix-config consumes via `--override-input`:
