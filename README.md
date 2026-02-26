@@ -90,3 +90,7 @@ PRs run `nix flake check` on Ubuntu via GitHub Actions to validate the flake str
 ## Branch protection
 
 The "Protect main" ruleset enforces: no force push (owner can bypass), no branch deletion, Copilot auto-review on PRs, and required CI status checks.
+
+## Author
+
+Thomas Skovlund Hansen — [thomas@skovlund.dev](mailto:thomas@skovlund.dev)
