@@ -1,4 +1,4 @@
-# CLAUDE.md — nix-config-personal
+# nix-config-personal
 
 Personal identity, secrets, and config for [nix-config](https://github.com/tskovlund/nix-config).
 
