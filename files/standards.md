@@ -122,10 +122,10 @@ to this global file.
   workflows instead of duplicating CI configuration
 - **Automate enforcement** — CI checks, pre-commit/pre-push hooks, linting,
   and type checking should enforce every rule that can be checked automatically
-- **Conventions belong in the repo** — each repo includes the relevant,
-  de-personalized subset of these standards in its own docs (CLAUDE.md,
-  CONTRIBUTING.md). Redundancy across repos is intentional so that every
-  contributor picks them up without needing access to global configuration
+- **CONVENTIONS.md in every repo** — the relevant, de-personalized subset of
+  these standards. AGENTS.md and CONTRIBUTING.md reference it, never duplicate
+  it. Redundancy across repos is intentional so that every contributor picks
+  them up without needing access to global configuration
 
 ## Python-Specific
 
