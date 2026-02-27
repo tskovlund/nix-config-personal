@@ -22,7 +22,7 @@ nix-config-personal/
 │   └── *.pub           # SSH public keys (plaintext)
 ├── skills/
 │   ├── README.md       # Skills reference (what each skill does)
-│   └── *.md            # Claude Code skill files
+│   └── *.md            # AI agent skill files
 └── README.md
 ```
 
@@ -68,7 +68,7 @@ The age key must exist at `~/.config/agenix/age-key.txt` before `make switch` ca
 
 ## Skills
 
-[Claude Code](https://github.com/anthropics/claude-code) skills — plaintext instruction sets deployed to `~/.claude/skills/` via home-manager. See the [skills reference](skills/README.md) for descriptions of each skill.
+AI agent skills — plaintext instruction sets deployed to `~/.claude/skills/` via home-manager. See the [skills reference](skills/README.md) for descriptions of each skill.
 
 ## Creating your own personal flake
 
