@@ -20,6 +20,9 @@ nix-config-personal/
 │   └── *.age           # Encrypted secrets
 ├── files/
 │   └── *.pub           # SSH public keys (plaintext)
+├── skills/
+│   ├── README.md       # Skills reference (what each skill does)
+│   └── *.md            # Claude Code skill files
 └── README.md
 ```
 
@@ -62,6 +65,10 @@ Secrets use [agenix](https://github.com/ryantm/agenix). A single portable age ke
 ### Prerequisites
 
 The age key must exist at `~/.config/agenix/age-key.txt` before `make switch` can decrypt secrets. It's generated once and copied to new machines manually. See nix-config's `bootstrap.sh` for automated generation.
+
+## Skills
+
+[Claude Code](https://github.com/anthropics/claude-code) skills — plaintext instruction sets deployed to `~/.claude/skills/` via home-manager. See the [skills reference](skills/README.md) for descriptions of each skill.
 
 ## Creating your own personal flake
 
