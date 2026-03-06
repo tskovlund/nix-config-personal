@@ -41,19 +41,31 @@ in
     # Work identity override for dc-main repos.
     # When a repo has a remote matching dc-main, use the work email and
     # the work RSA signing key (deployed via ~/.ssh/config.local on work machines).
-    includes = [
-      {
-        # Match the HTTPS form — git's hasconfig resolves through
-        # url.*.insteadOf, so even SSH-cloned repos match this pattern.
-        condition = "hasconfig:remote.*.url:https://github.com/dc-main/**";
-        contents = {
+    #
+    # Two entries are needed because git's hasconfig does NOT resolve
+    # url.*.insteadOf when matching — it checks the raw remote URL as
+    # stored in .git/config.  Repos cloned via HTTPS have the https://
+    # form; repos cloned via SSH (or with insteadOf already active) have
+    # the git@ form.
+    includes =
+      let
+        workContents = {
           user = {
             email = "tha@danskecommodities.com";
             signingKey = "${homeDir}/.ssh/id_rsa_github.pub";
           };
         };
-      }
-    ];
+      in
+      [
+        {
+          condition = "hasconfig:remote.*.url:https://github.com/dc-main/**";
+          contents = workContents;
+        }
+        {
+          condition = "hasconfig:remote.*.url:git@github.com:dc-main/**";
+          contents = workContents;
+        }
+      ];
   };
 
   # Allowed signers file for signature verification.
