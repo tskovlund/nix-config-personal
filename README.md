@@ -100,4 +100,4 @@ The "Protect main" ruleset enforces: no force push (owner can bypass), no branch
 
 ## Author
 
-Thomas Skovlund Hansen — [thomas@skovlund.dev](mailto:thomas@skovlund.dev)
+Thomas Skovlund Hansen — [skovlund.dev](https://skovlund.dev) · [thomas@skovlund.dev](mailto:thomas@skovlund.dev)
