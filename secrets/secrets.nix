@@ -27,4 +27,5 @@ in
   "zeroclaw-api-key.age".publicKeys = [ thomas ];
   "zeroclaw-telegram-bot-token.age".publicKeys = [ thomas ];
   "zeroclaw-gateway-token.age".publicKeys = [ thomas ];
+  "mcp-memory-api-key.age".publicKeys = [ thomas ];
 }

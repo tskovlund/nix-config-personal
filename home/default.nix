@@ -5,6 +5,7 @@
   ./dotfiles.nix
   ./github.nix
   ./grafana.nix
+  ./mcp-memory.nix
   ./miles.nix
   ./resend.nix
   ./restic.nix
