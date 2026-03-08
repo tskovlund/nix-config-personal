@@ -28,4 +28,10 @@ in
   "zeroclaw-telegram-bot-token.age".publicKeys = [ thomas ];
   "zeroclaw-gateway-token.age".publicKeys = [ thomas ];
   "mcp-memory-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-brave-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-linear-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-notion-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-openweathermap-api-key.age".publicKeys = [ thomas ];
+  "zeroclaw-newsapi-key.age".publicKeys = [ thomas ];
+  "zeroclaw-finnhub-api-key.age".publicKeys = [ thomas ];
 }
