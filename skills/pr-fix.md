@@ -65,3 +65,4 @@ If CI fails, fix, commit, and push before continuing.
 - For PR-level comments (not inline review comments), reply via:
   `POST /repos/{owner}/{repo}/issues/{number}/comments`
 - Git commands with hooks may need dev shell (`nix develop --command` or `devbox run --`)
+- Eliza counterpart: `skill-pr-review` in eliza-config (full PR lifecycle in single skill)

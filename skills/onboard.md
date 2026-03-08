@@ -179,3 +179,7 @@ Actions:
 - Don't store session-specific or speculative information in memory
 - Don't block the user's task with a lengthy exploration — be efficient
 - Don't re-onboard if recent MCP memory entries exist — just refresh
+
+## Notes
+
+- Eliza counterpart: `skill-onboard` in eliza-config (stores findings in shared MCP memory)

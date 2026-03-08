@@ -68,3 +68,7 @@ convention → follow it.
 
 Thomas mentions a trip → search "Thomas travel Netherlands" → recall he's
 planning to move to be with Maud → respond with awareness.
+
+## Notes
+
+- Eliza counterpart: `skill-memory-management` in eliza-config (two-tier memory architecture)

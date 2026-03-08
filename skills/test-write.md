@@ -177,3 +177,7 @@ Actions:
 - Don't mock everything — only mock external I/O (network, filesystem, time)
 - Don't write tests that just repeat the implementation logic
 - Don't ignore CONVENTIONS.md — it's the source of truth for test style
+
+## Notes
+
+- Eliza counterpart: `skill-test-write` in eliza-config (adapted for VPS, plain shell commands)

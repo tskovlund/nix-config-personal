@@ -187,3 +187,7 @@ For other repos: offer to run `/dep-update` to update the flake inputs.
 - Don't force-update past pinned versions without asking
 - Don't commit broken lockfiles — always run tests first
 - Don't update dev-only and prod dependencies in the same commit if both are large
+
+## Notes
+
+- Eliza counterpart: `skill-dep-update` in eliza-config (adapted for VPS, no nix)

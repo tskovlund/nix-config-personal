@@ -98,3 +98,7 @@ If actions were taken:
 
 **Cause:** Previous versions used macOS-specific `stat -f "%m"`.
 **Solution:** Now uses `find -mtime` which works on both macOS and Linux.
+
+## Notes
+
+- Eliza counterpart: `skill-repo-sync` in eliza-config (adapted for VPS repos)

@@ -62,3 +62,7 @@ Obvious, low-risk fixes: apply via `/skill-update` and mention the change. Behav
 ## Naming convention
 
 See skill-write for the `<topic>-<action>` naming pattern and examples.
+
+## Notes
+
+- Eliza counterpart: `skill-self-improvement` in eliza-config (reflection + skill evolution)

@@ -98,3 +98,7 @@ memory_store:
 
 **Solution:** Use `memory_cleanup` or manually review with `memory_list`.
 Delete session-specific, CLAUDE.md-duplicated, or irrelevant entries.
+
+## Notes
+
+- Eliza counterpart: `skill-memory-management` in eliza-config (two-tier memory architecture)

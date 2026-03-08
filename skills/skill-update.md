@@ -74,3 +74,7 @@ nix develop --command git commit -m "feat: update skills — <summary>"
 
 **Cause:** Claude Code caches skills per session.
 **Solution:** Start a new session to pick up changes.
+
+## Notes
+
+- Eliza counterpart: `skill-skill-management` in eliza-config (combined create/update/deploy)

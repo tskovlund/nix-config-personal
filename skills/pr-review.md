@@ -137,3 +137,7 @@ Spawned by pr-review-loop for PR #42 → fresh context → find 2 bugs → post 
 
 **Cause:** GitHub blocks this for self-review.
 **Solution:** Use COMMENT event — expected behavior.
+
+## Notes
+
+- Eliza counterpart: `skill-pr-review` in eliza-config (full PR lifecycle in single skill)

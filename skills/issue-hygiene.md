@@ -76,3 +76,7 @@ Make changes directly for clear-cut cases. Flag ambiguous cases.
 ### Issue appears stale but has off-platform activity
 
 **Solution:** Flag for Thomas instead of auto-updating.
+
+## Notes
+
+- Eliza counterpart: `skill-linear-operations` in eliza-config (consolidated Linear skill)

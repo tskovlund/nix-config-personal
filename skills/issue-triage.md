@@ -82,3 +82,7 @@ TSK-95: "Add direnv .envrc to nix-config-personal" + comment: "Should be straigh
 ### Unsure Backlog or Todo
 
 **Solution:** Default to Backlog. Todo means "ready to pick up now."
+
+## Notes
+
+- Eliza counterpart: `skill-linear-operations` in eliza-config (consolidated Linear skill)

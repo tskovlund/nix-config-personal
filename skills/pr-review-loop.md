@@ -120,6 +120,7 @@ Treat human reviewer and bot comments the same as subagent feedback: read, addre
 - Git commands with hooks need dev shell: `nix develop --command git commit` or `devbox run -- git commit`
 - Don't use `--no-verify` to bypass hooks — fix the underlying issue
 - Review subagents work from the same working directory and can read local files
+- Eliza counterpart: `skill-pr-review` in eliza-config (full PR lifecycle in single skill)
 
 ## Troubleshooting
 

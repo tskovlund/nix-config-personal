@@ -114,3 +114,7 @@ Thomas says: "track that the pre-commit hook fails on files with spaces"
 ### Created in wrong tracker
 
 **Solution:** Create in the correct tracker, cancel/close the wrong one with a note.
+
+## Notes
+
+- Eliza counterpart: `skill-linear-operations` in eliza-config (consolidated Linear skill)

@@ -86,3 +86,7 @@ Keep SKILL.md focused. If a section exceeds ~100 lines of reference material, mo
 - Triggers on paraphrased requests (natural language variations)
 - Does NOT trigger on unrelated topics (negative triggers help)
 - Distinguished from sibling skills in the same topic group
+
+## Notes
+
+- Eliza counterpart: `skill-skill-management` in eliza-config (quality standards section)

@@ -85,6 +85,7 @@ Start a new Claude Code session to confirm the skill appears.
 
 - After pushing nix-config-personal, use `make switch REFRESH=1` in nix-config
 - Skills are plaintext and committed directly to the repo
+- Eliza counterpart: `skill-skill-management` in eliza-config (combined create/update/deploy)
 
 ## Troubleshooting
 

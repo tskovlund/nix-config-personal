@@ -103,3 +103,7 @@ Provide context, background, and the "why."
 
 **Cause:** Documentation far from what it documents.
 **Solution:** Keep docs close to code. Prefer generated docs where possible.
+
+## Notes
+
+- Eliza counterpart: `skill-docs` in eliza-config (adapted for VPS/Telegram)
