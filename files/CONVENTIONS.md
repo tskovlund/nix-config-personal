@@ -4,6 +4,10 @@ Canonical conventions for all repositories maintained by Thomas Skovlund Hansen.
 Deployed to `~/.claude/CONVENTIONS.md` via home-manager. Referenced by the global
 CLAUDE.md so every Claude Code session has access.
 
+> **Canonical source:** `dot-github/conventions/general.md`. This file is a
+> personalized copy. When updating conventions, update dot-github first, then
+> re-encrypt this file to match.
+
 Per-repo docs (CLAUDE.md, CONTRIBUTING.md) should include the relevant,
 de-personalized subset of these standards. Redundancy across repos is
 intentional — every contributor should pick them up without needing access
@@ -30,6 +34,12 @@ to this global file.
   not `resp`
 - **Idempotency** — scripts, migrations, and deployments must be safe to run
   twice
+- **Sorted imports** — enforce automatically via tooling (Prettier plugin,
+  Ruff `isort`, etc.). Order: built-in → third-party → internal aliases →
+  relative, with blank lines between groups
+- **No debug logging in production code** — no `console.log`, `print()`,
+  `Debug.Log`, etc. Use proper logging frameworks or remove before commit.
+  Enforce via linter (`no-console`, Ruff `T20`)
 
 ## Configuration
 
@@ -76,14 +86,22 @@ to this global file.
 
 - **Lockfiles always committed** — `uv.lock`, `package-lock.json`,
   `flake.lock`, etc. Reproducible builds
-- **Pin direct dependencies to compatible ranges** — not exact (too noisy), not
-  fully open (too risky)
-- **CodeQL scanning in CI** when available (skip for private repos where cost
-  is prohibitive)
+- **Pin direct dependencies to compatible ranges with major version upper
+  bounds** — allow minor/patch updates, block major version bumps. Automated
+  dependency tools (Dependabot, Renovate) handle bumps; upper bounds ensure they
+  produce reviewable PRs instead of silent breakage. Examples:
+  - Python: `"websockets>=14.0,<15"` (not `">=14.0"`)
+  - Node: `"^14.0.0"` in `package.json` (caret is the default and correct)
+  - Nix flakes: `follows` pins; lockfile is the version constraint
+  - GitHub Actions: pin to commit SHA with version comment (e.g.
+    `actions/checkout@<sha> # v6`)
+- **CodeQL scanning in CI** when available
 - **Dependabot/Renovate** for automated dependency updates when available
 - **No secrets in code** — env vars or secret managers. `.env` files gitignored
 
 ## Testing
+
+### Test Design
 
 - **Naming:** `test_<action>_<expected_outcome>`
 - **Structure:** Arrange / Act / Assert comments in every test
@@ -95,6 +113,35 @@ to this global file.
 - **Integration tests alongside unit tests** — unit tests verify components in
   isolation, integration tests verify outcomes end-to-end. Both complement each
   other
+
+### Universal Rules
+
+- **`make check` as universal validation gate** — lint + typecheck + test. Must
+  pass before any commit is merged. Same command runs locally and in CI
+- **`make test` for fast feedback** — unit tests only, runs in seconds
+- **`make test-integration` for container-based tests** — separated from unit
+  tests so the fast loop stays fast
+- **Offline-capable unit tests** — no network calls, mock external APIs. Unit
+  tests must work on a plane
+- **CI parity** — developers run the exact same commands locally that CI runs.
+  Devbox or Nix dev shells ensure identical tooling everywhere. No "works on my
+  machine" gaps
+
+### Per-Archetype Minimum Test Types
+
+| Archetype                              | Test types                                                                                                                            |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Python library/tool (cambr, mcp-score) | Unit (pytest), property-based (hypothesis) for pure functions                                                                         |
+| Static website (skovlund.dev)          | A11y (Playwright + axe-core, blocking), E2E navigation (Playwright), visual regression (`toHaveScreenshot()`, non-blocking initially) |
+| Nix configuration (nix-config)         | `nix flake check --all-systems`                                                                                                       |
+
+### Integration Test Infrastructure
+
+- **Testcontainers for container-based integration tests** — add only when repos
+  interact with external services (databases, message brokers, APIs)
+- **Dev shells set Podman env vars** — `DOCKER_HOST`,
+  `TESTCONTAINERS_RYUK_DISABLED` configured in Nix dev shells so Testcontainers
+  works with Podman out of the box
 
 ## Git & Workflow
 
@@ -115,8 +162,9 @@ to this global file.
   where the README already covers everything, `docs/` is not required
 - **CONTRIBUTING.md** when external contributors are expected — references
   CONVENTIONS.md for standards, covers dev setup and PR process
-- **Author section at the bottom of every README** — always present. Licensed
-  repos also have a License section (linking to the LICENSE file) after it
+- **Author section at the bottom of every README** — always present. Format:
+  `Name — [site](url) · [email](mailto:email)`. Licensed repos also have a
+  License section (linking to the LICENSE file) after it
 
 ## Project Structure
 
