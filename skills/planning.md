@@ -100,4 +100,4 @@ Auto-triggers. Same workflow as above, but focused on quick wins and items alrea
 
 ### Memory returns conflicting prior decisions
 
-**Solution:** Use the most recent decision. Store a new memory with `SUPERSEDES` relationship.
+**Solution:** Use the most recent decision. Update the old memory or store a new one and delete the outdated entry.

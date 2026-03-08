@@ -36,6 +36,7 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 - `secrets/secrets.nix` — maps `.age` files to recipient public keys
 - `secrets/*.age` — encrypted secret files
 - `files/` — plaintext public keys and non-secret files
+- `skills/` — Claude Code skill files (plaintext, deployed via home-manager)
 
 ### Adding a new secret
 

@@ -1,22 +1,23 @@
 ---
 name: memory-store
 description: >
-  Store decisions, preferences, findings, and debugging insights in the MCP
-  knowledge graph. Auto-triggers after completing tasks that involved decisions
-  worth preserving, after debugging sessions that produced reusable insights,
-  when the user explicitly confirms a preference or convention, and after
-  research or exploration that produced durable findings. Do NOT use for
-  querying existing knowledge (use memory-recall).
+  Store decisions, preferences, findings, debugging insights, and personal
+  context in semantic memory. Auto-triggers after completing tasks that involved
+  decisions worth preserving, after debugging sessions that produced reusable
+  insights, when the user explicitly confirms a preference or convention, after
+  research or exploration that produced durable findings, and when personal
+  information is shared that a personal assistant should remember. Do NOT use
+  for querying existing knowledge (use memory-recall).
 user-invocable: false
-allowed-tools: mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__search_nodes
+allowed-tools: mcp__memory__memory_store, mcp__memory__memory_search, mcp__memory__memory_update, mcp__memory__memory_delete
 metadata:
   author: tskovlund
-  version: "2.0"
+  version: "3.0"
 ---
 
 # Memory store
 
-Persist durable knowledge to the knowledge graph so future sessions benefit.
+Persist durable knowledge to semantic memory so future sessions benefit.
 
 ## When to store
 
@@ -25,6 +26,8 @@ Persist durable knowledge to the knowledge graph so future sessions benefit.
 - **User confirms preference** — "always do X", "I prefer Y"
 - **After research** — findings that save time if encountered again
 - **Something surprisingly hard** — the insight is worth preserving
+- **Personal context** — facts about Thomas, his life, relationships, taste,
+  goals, and preferences that make interactions more personal and useful
 
 ## What NOT to store
 
@@ -34,26 +37,25 @@ Persist durable knowledge to the knowledge graph so future sessions benefit.
 - **CLAUDE.md duplicates** — memory supplements, doesn't replace
 - **Trivial facts** — obvious from reading the code
 
-## Entity naming
+## How to store
 
-Descriptive and searchable — think about future search terms:
-- Include context: `nix-config-dotfile-symlink-strategy` not `symlink-rule`
-- Lowercase hyphens: `skovlund-dev-blog-setup` not `Blog Setup`
+Use `memory_store` with content (freeform text) and tags (list of strings).
 
-## Relationship types
+**Content:** Write clear, searchable prose. Include context so semantic search
+finds it. A title line followed by bullet points works well.
 
-- `DECIDED` — a decision was made
-- `PREFERS` — Thomas prefers this approach
-- `DEPENDS_ON` — X requires Y
-- `RELATES_TO` — general connection
-- `SUPERSEDES` — replaces a previous decision
+**Tags:** Use descriptive tags for filtering:
+- **Topic tags:** `nix`, `cambr`, `skovlund.dev`, `mcp-score`, `eliza`, `vps`
+- **Type tags:** `decision`, `preference`, `debugging`, `gotcha`, `convention`,
+  `finding`, `personal`, `reference`
+- **Domain tags:** `infrastructure`, `ci`, `git`, `deployment`, `taste`
 
 ## Updating existing knowledge
 
-Search before creating. If found:
-- **Add observation** to existing entity (not a duplicate)
-- **SUPERSEDES** relationship if old info is wrong
-- **Delete** observations that are no longer true
+Search before creating. If a relevant memory exists:
+- **Update** it with `memory_update` (add new info, correct old info)
+- **Delete** with `memory_delete` if completely superseded
+- **Store new** if the topic is distinct enough to warrant a separate entry
 
 ## Examples
 
@@ -61,18 +63,38 @@ Search before creating. If found:
 
 Thomas decides to use `mkOutOfStoreSymlink` for dotfiles.
 
-→ Entity: `nix-config-dotfile-symlink-strategy`, type: decision
-→ Observation: "Use mkOutOfStoreSymlink. Alternative was file copy but requires rebuild on every edit."
+```
+memory_store:
+  content: "nix-config dotfile symlink strategy: Use mkOutOfStoreSymlink.
+    Alternative was file copy but requires rebuild on every edit."
+  tags: ["decision", "nix", "infrastructure"]
+```
 
 ### Example 2: Debugging insight
 
 agenix secrets not updating after deploy.
 
-→ Entity: `agenix-deploy-cache-gotcha`, type: debugging-insight
-→ Observation: "Nix input cache serves old flake. Fix: PERSONAL_INPUT=path:... or REFRESH=1."
+```
+memory_store:
+  content: "agenix deploy cache gotcha: Nix input cache serves old flake.
+    Fix: PERSONAL_INPUT=path:... or REFRESH=1."
+  tags: ["debugging", "gotcha", "nix", "agenix"]
+```
+
+### Example 3: Personal context
+
+Thomas shares something about his life.
+
+```
+memory_store:
+  content: "Thomas plays piano — jazz, classical, and film music.
+    Has a Yamaha CLP-785 digital piano. Studied at conservatory briefly."
+  tags: ["personal", "music", "hobbies"]
+```
 
 ## Troubleshooting
 
-### Memory graph grows too large
+### Memory grows too large
 
-**Solution:** Review and prune. Delete session-specific, CLAUDE.md-duplicated, or irrelevant entities.
+**Solution:** Use `memory_cleanup` or manually review with `memory_list`.
+Delete session-specific, CLAUDE.md-duplicated, or irrelevant entries.

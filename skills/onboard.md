@@ -137,7 +137,7 @@ Present a concise summary to the user:
 After summarizing, store key findings in MCP memory for future sessions:
 
 ```
-memory-store: Create entities for:
+memory-store: Store memories for:
 - repo architecture and purpose
 - key conventions and workflows
 - important file paths
