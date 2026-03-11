@@ -29,6 +29,7 @@ Every piece of documentation serves one of four purposes. Identify which type be
 ### 1. Tutorials (learning-oriented)
 
 Teach a beginner through a hands-on experience.
+
 - Show the destination upfront, deliver results early
 - Use "we" language, minimize explanation, focus on the concrete
 - Ignore alternatives — stay on the direct path
@@ -37,6 +38,7 @@ Teach a beginner through a hands-on experience.
 ### 2. How-to guides (task-oriented)
 
 Help a competent user accomplish a specific goal.
+
 - Title states the goal: "How to add a new secret"
 - Ordered steps, no teaching, no reference material
 - Name by user need, not tool operation
@@ -44,6 +46,7 @@ Help a competent user accomplish a specific goal.
 ### 3. Reference (information-oriented)
 
 Describe the machinery — what exists and how it works.
+
 - Austere and authoritative — facts, not opinions
 - Structure mirrors the thing documented
 - Consistent patterns, consulted not read
@@ -51,18 +54,19 @@ Describe the machinery — what exists and how it works.
 ### 4. Explanation (understanding-oriented)
 
 Provide context, background, and the "why."
+
 - Higher, wider perspective — makes connections
 - Admits opinion, considers alternatives
 - Title implies "about": "About the base/personal split"
 
 ## Identifying the type
 
-| Reader's mode | They need | Type |
-|---------------|-----------|------|
-| Learning a new skill | A guided experience | **Tutorial** |
-| Trying to get something done | Steps to follow | **How-to guide** |
-| Looking up specific info | Facts and descriptions | **Reference** |
-| Wanting to understand | Context and reasoning | **Explanation** |
+| Reader's mode                | They need              | Type             |
+| ---------------------------- | ---------------------- | ---------------- |
+| Learning a new skill         | A guided experience    | **Tutorial**     |
+| Trying to get something done | Steps to follow        | **How-to guide** |
+| Looking up specific info     | Facts and descriptions | **Reference**    |
+| Wanting to understand        | Context and reasoning  | **Explanation**  |
 
 ## Writing guidelines
 

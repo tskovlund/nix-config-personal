@@ -30,17 +30,20 @@ List all issues NOT in Done or Canceled. Group by project and standalone.
 ### 2. Check each against reality
 
 **Status accuracy:**
+
 - Actually In Progress, or has work stalled?
 - Done but not marked? (Check for merged PRs)
 - Should be Blocked?
 - Still relevant, or cancel?
 
 **Stale detection:**
+
 - In Progress, no activity in 2+ weeks → flag or Blocked
 - Todo, no activity in 4+ weeks → consider Backlog
 - Urgent/High sitting untouched → flag for priority review
 
 **Label and priority accuracy:**
+
 - Every issue should have at least one label
 - Priority still matches reality?
 

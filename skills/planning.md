@@ -38,15 +38,19 @@ Read the "Why we're doing all of this" section in `~/.claude/CLAUDE.md` for Thom
 For each item, assess:
 
 ### Does it compound?
+
 - Creates reusable infrastructure? Makes future work faster? Reduces manual toil?
 
 ### Does it ship?
+
 - Produces something people can use? Moves a product closer to launch? Revenue potential?
 
 ### Does it unblock?
+
 - Anything waiting on this? Removes a bottleneck? Enables parallel work?
 
 ### Is it time-sensitive?
+
 - External deadlines? Decaying opportunities? Dependencies that might change?
 
 ## Output
@@ -74,13 +78,16 @@ For each item: current vs recommended priority, rationale, dependencies, blocker
 User says: "what should I work on this week?"
 
 Actions:
+
 1. `list_teams` → confirm tskovlund
 2. Search memory for recent planning decisions
 3. List all In Progress, Todo, and Backlog items
 4. Apply evaluation framework
 
 Output:
+
 > **This week (High):**
+>
 > - TSK-45: Nix module for agent orchestration — compounds (infrastructure), unblocks Cambr work
 > - TSK-52: Fix flake input caching — compounds (dev experience), quick win
 >

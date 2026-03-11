@@ -17,6 +17,7 @@ metadata:
 # PR review loop
 
 Autonomously review and iterate on a PR until clean. Orchestrates two skills:
+
 - **pr-review** — independent review subagent (posts comments)
 - **pr-fix** — address each comment (fix + reply)
 
@@ -38,10 +39,10 @@ Ensure CI is green before starting. If failing, fix and push first.
 
 ## Constants
 
-| Parameter | Value |
-|-----------|-------|
-| Max review rounds | 5 |
-| Default review subagents | 1 |
+| Parameter                | Value |
+| ------------------------ | ----- |
+| Max review rounds        | 5     |
+| Default review subagents | 1     |
 
 ## Loop
 
@@ -57,6 +58,7 @@ BASELINE_REVIEWS=$(gh api "repos/{owner}/{repo}/pulls/$0/reviews" \
 ### 2. Spawn review subagent
 
 Spawn an independent review subagent using the Task tool with `subagent_type: "general-purpose"`. The subagent:
+
 - Has **no context** from the authoring session
 - Is **read-only** — reviews and comments only
 - Follows the **pr-review** skill protocol
@@ -64,6 +66,7 @@ Spawn an independent review subagent using the Task tool with `subagent_type: "g
 **Default: 1 subagent.** For complex PRs (large diff, many files, multiple subsystems), ask the user before spawning 2-3 focused subagents.
 
 If spawning multiple:
+
 - Subagent A: correctness and security
 - Subagent B: style, conventions, and completeness
 

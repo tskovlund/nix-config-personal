@@ -40,6 +40,7 @@ One well-phrased query usually suffices. If results seem incomplete, try a
 different angle — but semantic search is much more forgiving than keyword search.
 
 You can also filter by tags when you know the category:
+
 - `tags: ["decision"]` — all decisions
 - `tags: ["personal"]` — personal context about Thomas
 - `tags: ["nix", "gotcha"]` — Nix-specific gotchas

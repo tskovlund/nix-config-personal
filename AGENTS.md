@@ -7,6 +7,7 @@ Follow the code standards in [CONVENTIONS.md](CONVENTIONS.md).
 ## What this repo is
 
 This flake exports two things that nix-config consumes via `--override-input`:
+
 - **`identity`** — username, name, email (consumed by `flake.nix` and `home/git/`)
 - **`homeModules`** — list of home-manager modules for secrets, SSH, and personal dotfiles (imported by personal targets)
 
@@ -49,6 +50,7 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 ### SSH key naming convention
 
 Keys follow `id_ed25519_<purpose>`:
+
 - `id_ed25519_github` — GitHub authentication + commit signing
 - `id_ed25519_miles` — Hetzner VPS (miles) SSH access + deployment
 - Future: `id_ed25519_<hostname>` for additional hosts, `id_ed25519_work`, etc.
@@ -70,6 +72,7 @@ The file is read-only on disk (agenix symlink). Changes go through version contr
 The flake provides a dev shell with `nixfmt`, `statix`, and `deadnix`. Enter it with `nix develop` or automatically via direnv (`.envrc`).
 
 Commit hooks (`.githooks/`) are activated by the dev shell:
+
 - **pre-commit**: formats staged `.nix` files with `nixfmt`, lints with `statix`
 - **pre-push**: runs `nix flake check --all-systems`
 

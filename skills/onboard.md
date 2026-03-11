@@ -75,6 +75,7 @@ find . -maxdepth 2 -type d -not -path './.git*' -not -path './node_modules*' \
 ```
 
 Identify:
+
 - **Source layout:** `src/`, `lib/`, `app/`, flat, or domain-driven
 - **Test layout:** `tests/`, co-located `.test.` files, or both
 - **Config:** `flake.nix`, `package.json`, `pyproject.toml`, `Cargo.toml`
@@ -100,6 +101,7 @@ git log --oneline -10
 ```
 
 Note:
+
 - Commit message convention (conventional commits, imperative, etc.)
 - Branch strategy (main only, feature branches, etc.)
 - Dev shell approach (nix develop, devbox, venv, etc.)
@@ -153,6 +155,7 @@ Only store durable facts — not session-specific details like "currently workin
 Agent starts a task in `~/repos/cambr` — no MCP memory entries found.
 
 Actions:
+
 1. Check MCP memory for "cambr" — no results
 2. Read README.md, CLAUDE.md, CONVENTIONS.md
 3. Explore: Python project, pytest + pyright, nix develop, src/cambr/ layout
@@ -168,6 +171,7 @@ Actions:
 Agent starts work in `~/repos/mcp-score` — MCP memory has prior entries.
 
 Actions:
+
 1. Check MCP memory for "mcp-score" — finds architecture notes from 2 weeks ago
 2. Quick refresh: `git log --oneline --since="2 weeks ago"` to catch up on changes
 3. Report: "Loaded prior context for mcp-score. 4 commits since last session: [summary]"

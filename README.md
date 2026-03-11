@@ -41,12 +41,12 @@ Then `make switch` in nix-config automatically passes `--override-input personal
 
 ### identity
 
-| Field      | Type   | Description                                              |
-|------------|--------|----------------------------------------------------------|
-| `isStub`   | `bool` | Must be `false` (distinguishes real identity from stub)  |
-| `username` | `str`  | System user account, home directory path                 |
-| `fullName` | `str`  | Git commit author name                                   |
-| `email`    | `str`  | Git commit email address                                 |
+| Field      | Type   | Description                                             |
+| ---------- | ------ | ------------------------------------------------------- |
+| `isStub`   | `bool` | Must be `false` (distinguishes real identity from stub) |
+| `username` | `str`  | System user account, home directory path                |
+| `fullName` | `str`  | Git commit author name                                  |
+| `email`    | `str`  | Git commit email address                                |
 
 ### homeModules
 
@@ -58,8 +58,8 @@ List of home-manager modules imported by nix-config's personal targets. Currentl
 
 Secrets use [agenix](https://github.com/ryantm/agenix). A single portable age key decrypts everything.
 
-| Secret | Purpose | Decrypted to |
-|--------|---------|-------------|
+| Secret                  | Purpose                                    | Decrypted to               |
+| ----------------------- | ------------------------------------------ | -------------------------- |
 | `id_ed25519_github.age` | GitHub SSH authentication + commit signing | `~/.ssh/id_ed25519_github` |
 
 ### Prerequisites

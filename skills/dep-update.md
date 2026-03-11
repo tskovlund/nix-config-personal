@@ -124,6 +124,7 @@ git commit -F /tmp/msg.txt
 ```
 
 Commit message format:
+
 ```
 chore(deps): update [scope] dependencies
 
@@ -155,6 +156,7 @@ Update only what was requested, run tests, commit.
 User says: "update deps"
 
 Actions:
+
 1. Detect: `pyproject.toml` + `flake.lock` present
 2. Run `nix flake update` — updates nix inputs
 3. Run `poetry update` — updates Python dependencies
@@ -167,6 +169,7 @@ Actions:
 User says: "update deps httpx"
 
 Actions:
+
 1. Run `pip install --upgrade httpx`
 2. Run `pytest` — 2 failures in `test_api_client.py`
 3. Check httpx changelog — `Response.json()` is now async in v0.28

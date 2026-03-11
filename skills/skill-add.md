@@ -21,17 +21,20 @@ Full automation for creating and deploying skills. Follow the skill-write guide 
 ## Step 1: Determine skill type
 
 **Personal skill** (`~/.claude/skills/`, deployed via home-manager):
+
 - Cross-project workflows, workspace IDs, personal conventions
 - Deployed to all projects via home-manager
 - Lives in nix-config-personal (`skills/<name>.md`)
 
 **Project skill** (`.claude/skills/` in a repo):
+
 - Project-specific conventions and workflows
 - Committed directly to the repo
 
 ## Step 2: Design the skill
 
 Confirm with Thomas:
+
 - **Name**: `<topic>-<action>` pattern (see skill-write for naming convention)
 - **Type**: slash-invocable, auto-only, or both (`user-invocable` field)
 - **Allowed tools**: least privilege

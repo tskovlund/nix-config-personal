@@ -21,6 +21,7 @@ Review a pull request for code quality, bugs, style, and correctness. Post findi
 ## Context
 
 Used in two ways:
+
 1. **Standalone** — invoked directly to review any PR
 2. **As subagent** — spawned by pr-review-loop for independent self-review
 
@@ -74,6 +75,7 @@ gh api "repos/{owner}/{repo}/pulls/$0/reviews" \
 ```
 
 Where the JSON contains:
+
 ```json
 {
   "event": "COMMENT",
@@ -90,6 +92,7 @@ Where the JSON contains:
 ```
 
 **Simple reviews:**
+
 ```sh
 gh pr review $0 --comment --body "Review summary."
 ```

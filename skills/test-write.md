@@ -153,6 +153,7 @@ If tests fail, fix the tests (not the source) — unless you discover an actual 
 User says: "write tests for src/parser.py"
 
 Actions:
+
 1. Read `CONVENTIONS.md` — note naming convention, AAA structure requirement
 2. Read `src/parser.py` — find `parse_config(text: str) -> Config` and `validate_schema(config: Config) -> list[Error]`
 3. Check `tests/` — no existing `test_parser.py`, but `test_engine.py` exists — match its patterns
@@ -167,6 +168,7 @@ Actions:
 Agent just created `src/utils/rate_limiter.py` with no corresponding test file.
 
 Actions:
+
 1. Detect: new module created without tests
 2. Suggest: "I notice `rate_limiter.py` has no tests. Want me to write them?"
 3. If confirmed, read CONVENTIONS.md, write tests following its rules

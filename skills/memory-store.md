@@ -45,6 +45,7 @@ Use `memory_store` with content (freeform text) and tags (list of strings).
 finds it. A title line followed by bullet points works well.
 
 **Tags:** Use descriptive tags for filtering:
+
 - **Topic tags:** `nix`, `cambr`, `skovlund.dev`, `mcp-score`, `eliza`, `vps`
 - **Type tags:** `decision`, `preference`, `debugging`, `gotcha`, `convention`,
   `finding`, `personal`, `reference`
@@ -53,6 +54,7 @@ finds it. A title line followed by bullet points works well.
 ## Updating existing knowledge
 
 Search before creating. If a relevant memory exists:
+
 - **Update** it with `memory_update` (add new info, correct old info)
 - **Delete** with `memory_delete` if completely superseded
 - **Store new** if the topic is distinct enough to warrant a separate entry

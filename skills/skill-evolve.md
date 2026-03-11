@@ -19,15 +19,18 @@ Background awareness for maintaining, improving, and healing the Claude Code ski
 ## When to consider new skills
 
 **After completing a task:** Did I follow a repeatable workflow that isn't yet a skill?
+
 - Multi-step process I'd do the same way next time
 - Conventions from CLAUDE.md that could be loaded on demand
 - Specific tools in a specific order
 
 **After struggling with a task:** Would a skill have helped?
+
 - Had to search for conventions that should be readily available
 - Made a mistake that instructions would have prevented
 
 **When updating CLAUDE.md:** Should this be a skill instead?
+
 - CLAUDE.md = always loaded (every token counts)
 - Skills = loaded on demand (better for reference material and workflows)
 

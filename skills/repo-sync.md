@@ -51,6 +51,7 @@ Look for `[gone]` branches (tracking deleted remotes). Mention if found.
 Only when working in nix-config or nix-config-personal:
 
 **Flake input freshness:**
+
 ```sh
 # Cross-platform: check if flake.lock is older than 14 days
 if [ -n "$(find . -maxdepth 1 -name flake.lock -mtime +14 2>/dev/null)" ]; then
@@ -63,6 +64,7 @@ If stale, suggest: "Flake inputs are over 14 days old. Consider `/nix-update`."
 **Personal flake sync (nix-config only):**
 
 If nix-config-personal exists, fetch and auto-pull if safe fast-forward:
+
 ```sh
 PERSONAL_DIR=$(eval echo ~)/repos/nix-config-personal
 if [ -d "$PERSONAL_DIR" ]; then
@@ -76,6 +78,7 @@ fi
 If everything is clean, say nothing — proceed with the user's task.
 
 If actions were taken:
+
 > Pulled 3 commits from remote. Flake inputs are 18 days old — consider `/nix-update`.
 
 ## What NOT to do

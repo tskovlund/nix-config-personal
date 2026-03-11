@@ -23,8 +23,8 @@ name: skill-name-in-kebab-case
 description: >
   [WHAT it does]. Use when [WHEN to trigger — specific phrases].
   Do NOT use for [negative triggers — what other skills handle].
-user-invocable: true  # or false for auto-only
-argument-hint: "[arg-description]"  # only if user-invocable with arguments
+user-invocable: true # or false for auto-only
+argument-hint: "[arg-description]" # only if user-invocable with arguments
 allowed-tools: [least privilege tool list]
 metadata:
   author: tskovlund
