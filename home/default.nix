@@ -1,9 +1,10 @@
 # Home-manager modules, exposed individually (for cherry-picking) and as
-# `default`, which imports them all. The attrset shape is what
-# flake-schemas expects for `homeModules` (`nix flake check` fails on a
-# bare list); consumers import `homeModules.default`.
+# `default`, which imports them all. flake-schemas requires homeModules
+# to be an attrset whose values are modules (functions or attrsets —
+# bare paths fail the isFunctionOrAttrs check), so each named entry
+# wraps its file in an `imports` attrset.
 let
-  modules = {
+  moduleFiles = {
     agenix-darwin-workaround = ./agenix-darwin-workaround.nix;
     cambr = ./cambr.nix;
     cloudflare = ./cloudflare.nix;
@@ -16,5 +17,11 @@ let
     restic = ./restic.nix;
     skills = ./skills.nix;
   };
+  asModule = path: { imports = [ path ]; };
 in
-modules // { default = { imports = builtins.attrValues modules; }; }
+builtins.mapAttrs (_name: asModule) moduleFiles
+// {
+  default = {
+    imports = builtins.attrValues moduleFiles;
+  };
+}
