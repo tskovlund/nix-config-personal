@@ -32,12 +32,14 @@ Do not rename, remove, or change the types of these fields without updating nix-
 
 ## Secrets (agenix)
 
+This repo is the **canonical home for the secrets workflow** — nix-config's AGENTS.md points here rather than duplicating it.
+
 Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/agenix/age-key.txt`) decrypts everything — the same key is copied to every machine.
 
 - `secrets/secrets.nix` — maps `.age` files to recipient public keys
 - `secrets/*.age` — encrypted secret files
-- `files/` — plaintext public keys and non-secret files
-- `skills/` — Claude Code skill files (plaintext, deployed via home-manager)
+- `files/` — plaintext public keys and non-secret files. Plaintext working copies of encrypted content are gitignored; only `.age` files are committed.
+- `skills/` — Claude Code skill files (plaintext, deployed to `~/.claude/skills/` by `home/skills.nix`). Adding or renaming a skill means updating the `managedSkills` list there — its cleanup activation uses that list to delete stale directories.
 
 ### Adding a new secret
 
@@ -47,6 +49,8 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 3. Declare `age.secrets.<name>` in a home-manager module under `home/`
 4. Reference the decrypted path via `config.age.secrets.<name>.path`
 
+After changing recipients, re-encrypt everything with `cd secrets && agenix -r`.
+
 ### SSH key naming convention
 
 Keys follow `id_ed25519_<purpose>`:
@@ -55,32 +59,19 @@ Keys follow `id_ed25519_<purpose>`:
 - `id_ed25519_miles` — Hetzner VPS (miles) SSH access + deployment
 - Future: `id_ed25519_<hostname>` for additional hosts, `id_ed25519_work`, etc.
 
-## Updating ~/.claude/CLAUDE.md
+### Updating ~/.claude/CLAUDE.md
 
-The global Claude Code instructions file is agenix-encrypted (`secrets/claude-global-context.md.age`) and decrypted on `make switch`. The plaintext source at `files/CLAUDE.md` is gitignored — only the `.age` file is committed.
+The global Claude Code instructions file is agenix-encrypted (`secrets/claude-global-context.md.age`) and decrypted on `make switch`. The plaintext source at `files/CLAUDE.md` is gitignored.
 
-To update:
-
-1. `agenix -e secrets/claude-global-context.md.age` — decrypts, opens in `$EDITOR`, re-encrypts on save
-2. Commit and push the updated `.age` file
-3. Run `make switch` in nix-config to deploy
-
-The file is read-only on disk (agenix symlink). Changes go through version control.
+`agenix -e secrets/claude-global-context.md.age` decrypts, opens `$EDITOR`, and re-encrypts on save. Commit the `.age` file, then `make switch` in nix-config to deploy. The deployed file is a read-only agenix symlink — edits must go through this path.
 
 ## Development
 
-The flake provides a dev shell with `nixfmt`, `statix`, and `deadnix`. Enter it with `nix develop` or automatically via direnv (`.envrc`).
+The flake provides a dev shell with `nixfmt`, `statix`, and `deadnix`. Enter it with `nix develop` or automatically via direnv (`.envrc`). Hooks in `.githooks/` are activated by the dev shell: pre-commit formats and lints staged `.nix` files, pre-push runs `nix flake check --all-systems`.
 
-Commit hooks (`.githooks/`) are activated by the dev shell:
+Git commands that trigger hooks need those tools, so prefix with `nix develop --command` when not already in the dev shell.
 
-- **pre-commit**: formats staged `.nix` files with `nixfmt`, lints with `statix`
-- **pre-push**: runs `nix flake check --all-systems`
-
-Git commands that trigger hooks require dev shell tools. Prefix with `nix develop --command` if not already in the dev shell.
-
-## Branch protection
-
-Same setup as nix-config: "Protect main" ruleset with no force push (owner can bypass), no deletion, Copilot auto-review, and required CI status checks.
+Branch protection matches nix-config: "Protect main" ruleset, no force push (owner can bypass), no deletion, Copilot auto-review, required CI status checks.
 
 ## Testing
 
