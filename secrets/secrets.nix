@@ -17,7 +17,7 @@ in
 {
   "id_ed25519_github.age".publicKeys = [ thomas ];
   "id_ed25519_miles.age".publicKeys = [ thomas ];
-  "CLAUDE.md.age".publicKeys = [ thomas ];
+  "claude-global-context.md.age".publicKeys = [ thomas ];
   "resend-api-key.age".publicKeys = [ thomas ];
   "cloudflare-api-token.age".publicKeys = [ thomas ];
   "grafana-service-account-token.age".publicKeys = [ thomas ];

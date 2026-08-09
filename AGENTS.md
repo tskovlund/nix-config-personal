@@ -57,11 +57,11 @@ Keys follow `id_ed25519_<purpose>`:
 
 ## Updating ~/.claude/CLAUDE.md
 
-The global Claude Code instructions file is agenix-encrypted (`secrets/CLAUDE.md.age`) and decrypted on `make switch`. The plaintext source at `files/CLAUDE.md` is gitignored — only the `.age` file is committed.
+The global Claude Code instructions file is agenix-encrypted (`secrets/claude-global-context.md.age`) and decrypted on `make switch`. The plaintext source at `files/CLAUDE.md` is gitignored — only the `.age` file is committed.
 
 To update:
 
-1. `agenix -e secrets/CLAUDE.md.age` — decrypts, opens in `$EDITOR`, re-encrypts on save
+1. `agenix -e secrets/claude-global-context.md.age` — decrypts, opens in `$EDITOR`, re-encrypts on save
 2. Commit and push the updated `.age` file
 3. Run `make switch` in nix-config to deploy
 
