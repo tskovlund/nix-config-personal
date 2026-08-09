@@ -3,7 +3,7 @@ name: onboard
 description: >
   Explore and internalize an unfamiliar repo's architecture, conventions,
   and key patterns. Auto-triggers when entering a repo for the first time
-  or one with no prior MCP memory entries. Use when the user says "onboard",
+  or one with no prior built-in memory entries. Use when the user says "onboard",
   "learn this repo", "explore this codebase", "get familiar", or when starting
   work in an unfamiliar project. Do NOT use for syncing repos (use repo-sync)
   or writing documentation (use docs).
@@ -21,17 +21,13 @@ read key files, understand conventions, and store findings for future sessions.
 
 ## When to trigger
 
-- First time working in a repo (no MCP memory entries for it)
+- First time working in a repo (no built-in memory entries for it)
 - User explicitly asks to explore or understand a codebase
 - Starting a task in a repo you haven't worked in recently
 
-Check MCP memory first — if prior onboarding exists, load it instead of re-exploring:
-
-```
-memory-recall: search for repo name, project name, architecture
-```
-
-If recent findings exist, skip to a quick refresh (step 5 only).
+Check the built-in memory first (MEMORY.md index and linked files) — if prior
+onboarding notes exist, load them instead of re-exploring. If recent findings
+exist, skip to a quick refresh (step 5 only).
 
 ## Exploration steps
 
@@ -136,15 +132,13 @@ Present a concise summary to the user:
 
 ## Store findings
 
-After summarizing, store key findings in MCP memory for future sessions:
+After summarizing, store key findings in the built-in file-based memory
+(individual memory files + MEMORY.md index entries) for future sessions:
 
-```
-memory-store: Store memories for:
 - repo architecture and purpose
 - key conventions and workflows
 - important file paths
 - dev shell / tooling setup
-```
 
 Only store durable facts — not session-specific details like "currently working on X".
 
@@ -152,11 +146,11 @@ Only store durable facts — not session-specific details like "currently workin
 
 ### Example 1: New Python project
 
-Agent starts a task in `~/repos/cambr` — no MCP memory entries found.
+Agent starts a task in `~/repos/cambr` — no built-in memory entries found.
 
 Actions:
 
-1. Check MCP memory for "cambr" — no results
+1. Check memory for "cambr" — no results
 2. Read README.md, CLAUDE.md, CONVENTIONS.md
 3. Explore: Python project, pytest + pyright, nix develop, src/cambr/ layout
 4. Check git log — conventional commits, recent work on strategy engine
@@ -164,15 +158,15 @@ Actions:
    > **cambr** — Algorithmic trading bot. Python 3.12, pytest, pyright, nix develop.
    > Source in src/cambr/, tests in tests/. Conventional commits.
    > Pre-push hook runs pytest + pyright. Recent: strategy backtesting.
-6. Store architecture and workflow in MCP memory
+6. Store architecture and workflow in memory
 
 ### Example 2: Returning to a familiar repo
 
-Agent starts work in `~/repos/mcp-score` — MCP memory has prior entries.
+Agent starts work in `~/repos/mcp-score` — memory has prior entries.
 
 Actions:
 
-1. Check MCP memory for "mcp-score" — finds architecture notes from 2 weeks ago
+1. Check memory for "mcp-score" — finds architecture notes from 2 weeks ago
 2. Quick refresh: `git log --oneline --since="2 weeks ago"` to catch up on changes
 3. Report: "Loaded prior context for mcp-score. 4 commits since last session: [summary]"
 4. Proceed with the user's task
@@ -182,8 +176,7 @@ Actions:
 - Don't read every file — focus on key files and structure
 - Don't store session-specific or speculative information in memory
 - Don't block the user's task with a lengthy exploration — be efficient
-- Don't re-onboard if recent MCP memory entries exist — just refresh
+- Don't re-onboard if recent built-in memory entries exist — just refresh
 
 ## Notes
 
-- Eliza counterpart: `skill-onboard` in eliza-config (stores findings in shared MCP memory)

@@ -30,7 +30,7 @@ Read the "Why we're doing all of this" section in `~/.claude/CLAUDE.md` for Thom
 ## Gather context
 
 1. **Linear backlog:** List all projects and standalone issues across all statuses
-2. **MCP memory:** Search for prior planning decisions, strategic context, and preferences
+2. **Memory:** Search built-in memory for prior planning decisions, strategic context, and preferences
 3. **Current state:** What's In Progress? What's Blocked? What was recently completed?
 
 ## Evaluation framework

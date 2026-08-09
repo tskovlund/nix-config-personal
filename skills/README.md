@@ -32,8 +32,6 @@ For project-specific skills, see `.claude/skills/` in individual repos (e.g., ni
 
 | Skill                             | Type | Description                                                     |
 | --------------------------------- | ---- | --------------------------------------------------------------- |
-| [memory-recall](memory-recall.md) | auto | Query MCP knowledge graph for prior decisions and context       |
-| [memory-store](memory-store.md)   | auto | Persist decisions, preferences, and findings to knowledge graph |
 
 ### Dev workflow
 

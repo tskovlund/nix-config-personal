@@ -14,8 +14,6 @@ let
     "pr-review-loop"
     "pr-fix"
     "planning"
-    "memory-recall"
-    "memory-store"
     "skill-evolve"
     "skill-add"
     "skill-update"

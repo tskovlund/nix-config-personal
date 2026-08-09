@@ -46,7 +46,6 @@ Follow `<topic>-<action>` pattern. Group related skills by topic prefix:
 
 - `issue-triage`, `issue-track`, `issue-hygiene` (topic: issue)
 - `skill-add`, `skill-evolve`, `skill-update` (topic: skill)
-- `memory-recall`, `memory-store` (topic: memory)
 - `pr-review`, `pr-review-loop`, `pr-fix` (topic: pr)
 
 ## Body structure
