@@ -1,79 +1,33 @@
 # Claude Code Skills
 
-Personal skills deployed to `~/.claude/skills/` via home-manager. These are loaded by Claude Code based on context and slash commands.
+Personal skills deployed to `~/.claude/skills/<name>/SKILL.md` via home-manager. Claude Code loads a skill's body when its `description` matches what you're doing, or when you invoke it as `/<name>`.
 
-For project-specific skills, see `.claude/skills/` in individual repos (e.g., nix-config has `nix-update`, `nix-debug`, `nix-module`, `nix-secret`, `switch-verify`).
+For project-specific skills, see `.claude/skills/` in individual repos (e.g. nix-config has `nix-update`, `nix-debug`, `nix-module`, `nix-secret`, `switch-verify`).
 
 ## Inventory
 
-### Issue management
-
-| Skill                             | Type         | Description                                                          |
-| --------------------------------- | ------------ | -------------------------------------------------------------------- |
-| [issue-triage](issue-triage.md)   | slash + auto | Shape and promote Linear triage issues into actionable backlog items |
-| [issue-track](issue-track.md)     | slash + auto | Capture ideas and tasks — routes to GitHub Issues or Linear          |
-| [issue-hygiene](issue-hygiene.md) | slash        | Audit and sync issues with reality across both trackers              |
-
-### PR workflow
-
-| Skill                               | Type         | Description                                                           |
-| ----------------------------------- | ------------ | --------------------------------------------------------------------- |
-| [pr-review](pr-review.md)           | slash        | Review a PR for bugs, style, and correctness; post comments on GitHub |
-| [pr-fix](pr-fix.md)                 | auto         | Address review comments: fix code + reply to every comment            |
-| [pr-review-loop](pr-review-loop.md) | slash + auto | Orchestrate review/fix cycles until a PR is clean                     |
-
-### Planning
-
-| Skill                   | Type         | Description                                         |
-| ----------------------- | ------------ | --------------------------------------------------- |
-| [planning](planning.md) | slash + auto | Prioritize the Linear backlog using strategic goals |
-
-### Memory
-
-| Skill                             | Type | Description                                                     |
-| --------------------------------- | ---- | --------------------------------------------------------------- |
-
-### Dev workflow
-
-| Skill                       | Type         | Description                                                |
-| --------------------------- | ------------ | ---------------------------------------------------------- |
-| [onboard](onboard.md)       | slash + auto | Explore and internalize an unfamiliar repo's architecture  |
-| [repo-sync](repo-sync.md)   | slash + auto | Ensure repo is up-to-date with remote before starting work |
-| [test-write](test-write.md) | slash + auto | Generate tests following CONVENTIONS.md rules              |
-| [dep-update](dep-update.md) | slash        | Update project dependencies and verify nothing breaks      |
-| [docs](docs.md)             | slash        | Write documentation using the Diataxis framework           |
-
-### Skill management
-
-| Skill                           | Type  | Description                                                          |
-| ------------------------------- | ----- | -------------------------------------------------------------------- |
-| [skill-add](skill-add.md)       | slash | Create a new skill: write, wire into nix, commit                     |
-| [skill-update](skill-update.md) | slash | Edit an existing skill: modify, commit, deploy                       |
-| [skill-evolve](skill-evolve.md) | auto  | Background awareness for skill improvements and new skill candidates |
-| [skill-write](skill-write.md)   | auto  | Writing guide, quality checklist, and naming conventions             |
+| Skill                             | Description                                                             |
+| --------------------------------- | ----------------------------------------------------------------------- |
+| [issues](issues.md)               | Linear vs GitHub routing, tracker conventions, public-repo privacy rules |
+| [pr-loop](pr-loop.md)             | Independent-reviewer self-review loop until a PR is ready for Thomas     |
+| [housekeeping](housekeeping.md)   | Recurring cross-repo maintenance sweep: bot PRs, alerts, branches, drift |
+| [planning](planning.md)           | Backlog review and what-to-work-on-next                                  |
+| [dep-update](dep-update.md)       | Per-repo dependency update commands and validation gates                 |
+| [repo-sync](repo-sync.md)         | Sync with remote without ever endangering uncommitted work               |
+| [docs](docs.md)                   | Diataxis as a thinking tool; README sells, `docs/` teaches               |
+| [readme-write](readme-write.md)   | README structure and the house Author/License convention                 |
+| [skill](skill.md)                 | Skill lifecycle, nix wiring, and the style law for writing skills        |
 
 ## How it works
 
-Skills are plaintext markdown files in this directory, deployed to `~/.claude/skills/<name>/SKILL.md` via `home.file` entries in [`home/skills.nix`](../home/skills.nix).
+Each skill is a single markdown file in this directory. [`home/skills.nix`](../home/skills.nix) reads the `managedSkills` list to generate the `home.file` entries, so **adding a name to that list is the entire wiring change**. The `cleanStaleSkills` activation removes deployed directories for skills no longer in the list, so renames and deletions clean up after themselves.
 
-Each skill has YAML frontmatter that Claude Code reads to determine when to load the skill body:
+Deploy with `make switch` in nix-config. Skills are cached per session — verify in a **fresh** Claude Code session.
 
-- **`description`** — triggers matching (WHAT + WHEN + negative triggers)
-- **`user-invocable`** — whether it can be called as `/skill-name`
-- **`allowed-tools`** — least-privilege tool access
+## Style
 
-### Adding a skill
-
-1. Write `skills/<name>.md` following the [skill-write](skill-write.md) guide
-2. Add a `home.file` entry and `managedSkills` entry in `home/skills.nix`
-3. Commit, push, `make switch REFRESH=1`
-
-### Naming convention
-
-`<topic>-<action>` pattern. Related skills share a topic prefix:
-
-- `issue-*`, `pr-*`, `memory-*`, `skill-*`
+Skills carry only what the model can't derive: facts it has no way to know, Thomas's preferences among defensible options, guardrails earned from real incidents, and routing glue between sibling skills. No procedures the model already knows, no ceremony sections, no restating [CONVENTIONS.md](../../dot-github/CONVENTIONS.md). See [skill](skill.md) for the full standard.
 
 ## Sensitive data
 
-Skills are plaintext in a public repo. Do **not** put secrets, API keys, or personal goals in skill files. Sensitive context belongs in the encrypted `~/.claude/CLAUDE.md` (managed via agenix).
+Skills are plaintext in a public repo. Do **not** put secrets, API keys, revenue details, or strategy in skill files. Sensitive context belongs in the encrypted `~/.claude/CLAUDE.md` (managed via agenix).

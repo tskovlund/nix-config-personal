@@ -7,22 +7,15 @@ let
   # List of skill directory names managed by this module.
   # Used by the cleanup activation to remove stale directories after renames.
   managedSkills = [
-    "issue-triage"
-    "issue-hygiene"
-    "issue-track"
-    "pr-review"
-    "pr-review-loop"
-    "pr-fix"
+    "issues"
+    "pr-loop"
+    "housekeeping"
     "planning"
-    "skill-evolve"
-    "skill-add"
-    "skill-update"
+    "dep-update"
     "repo-sync"
     "docs"
-    "skill-write"
-    "test-write"
-    "dep-update"
-    "onboard"
+    "readme-write"
+    "skill"
   ];
 
   managedSkillsStr = lib.concatStringsSep " " managedSkills;
