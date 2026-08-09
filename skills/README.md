@@ -6,17 +6,17 @@ For project-specific skills, see `.claude/skills/` in individual repos (e.g. nix
 
 ## Inventory
 
-| Skill                             | Description                                                             |
-| --------------------------------- | ----------------------------------------------------------------------- |
-| [issues](issues.md)               | Linear vs GitHub routing, tracker conventions, public-repo privacy rules |
-| [pr-loop](pr-loop.md)             | Independent-reviewer self-review loop until a PR is ready for Thomas     |
-| [housekeeping](housekeeping.md)   | Recurring cross-repo maintenance sweep: bot PRs, alerts, branches, drift |
-| [planning](planning.md)           | Backlog review and what-to-work-on-next                                  |
-| [dep-update](dep-update.md)       | Per-repo dependency update commands and validation gates                 |
-| [repo-sync](repo-sync.md)         | Sync with remote without ever endangering uncommitted work               |
-| [docs](docs.md)                   | Diataxis as a thinking tool; README sells, `docs/` teaches               |
-| [readme-write](readme-write.md)   | README structure and the house Author/License convention                 |
-| [skill](skill.md)                 | Skill lifecycle, nix wiring, and the style law for writing skills        |
+| Skill                           | Description                                                              |
+| ------------------------------- | ------------------------------------------------------------------------ |
+| [issues](issues.md)             | Linear vs GitHub routing, tracker conventions, public-repo privacy rules |
+| [pr-loop](pr-loop.md)           | Independent-reviewer self-review loop until a PR is ready for Thomas     |
+| [housekeeping](housekeeping.md) | Recurring cross-repo maintenance sweep: bot PRs, alerts, branches, drift |
+| [planning](planning.md)         | Backlog review and what-to-work-on-next                                  |
+| [dep-update](dep-update.md)     | Per-repo dependency update commands and validation gates                 |
+| [repo-sync](repo-sync.md)       | Sync with remote without ever endangering uncommitted work               |
+| [docs](docs.md)                 | Diataxis as a thinking tool; README sells, `docs/` teaches               |
+| [readme-write](readme-write.md) | README structure and the house Author/License convention                 |
+| [skill](skill.md)               | Skill lifecycle, nix wiring, and the style law for writing skills        |
 
 ## How it works
 

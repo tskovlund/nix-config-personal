@@ -28,7 +28,7 @@ stays current without a skill edit.
 
 ## Staleness
 
-Be ruthless about stale *status* — items that claim In Progress but haven't
+Be ruthless about stale _status_ — items that claim In Progress but haven't
 moved, priorities that no longer match reality, trackers that drifted from what
 actually shipped. Fix those directly.
 

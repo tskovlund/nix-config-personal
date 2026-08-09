@@ -13,13 +13,13 @@ argument-hint: "[repo or dependency]"
 
 Per-repo command and gate — the gate is the part that varies and matters.
 
-| Repo | Update | Gate |
-| --- | --- | --- |
-| mcp-score, cambr | `uv lock --upgrade` | `devbox run check` (pytest + ruff + pyright) |
-| nix-config | `nix flake update` | `nix flake check`, then build the darwin closure **before** switching |
-| kammer | `mix deps.update` inside `nix develop` | `mix precommit` + audit |
-| skovlund.dev | `pnpm update` via devbox | the repo's `check` target |
-| qed | lake manifest, by hand | small surface — read the diff |
+| Repo             | Update                                 | Gate                                                                  |
+| ---------------- | -------------------------------------- | --------------------------------------------------------------------- |
+| mcp-score, cambr | `uv lock --upgrade`                    | `devbox run check` (pytest + ruff + pyright)                          |
+| nix-config       | `nix flake update`                     | `nix flake check`, then build the darwin closure **before** switching |
+| kammer           | `mix deps.update` inside `nix develop` | `mix precommit` + audit                                               |
+| skovlund.dev     | `pnpm update` via devbox               | the repo's `check` target                                             |
+| qed              | lake manifest, by hand                 | small surface — read the diff                                         |
 
 ## Conventions
 
