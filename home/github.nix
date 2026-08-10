@@ -17,9 +17,9 @@ in
   home.file.".ssh/${keyName}.pub".source = ../files/${keyName}.pub;
 
   # SSH: route GitHub traffic through this key
-  programs.ssh.matchBlocks."github.com" = {
-    identityFile = "${homeDir}/.ssh/${keyName}";
-    identitiesOnly = true;
+  programs.ssh.settings."github.com" = {
+    IdentityFile = "${homeDir}/.ssh/${keyName}";
+    IdentitiesOnly = "yes";
   };
 
   # Git: SSH commit signing
@@ -75,9 +75,11 @@ in
     let
       personalPubKey = builtins.readFile ../files/${keyName}.pub;
       workPubKey = builtins.readFile ../files/id_rsa_github.pub;
+      claudePubKey = builtins.readFile ../files/id_ed25519_claude.pub;
     in
     ''
       ${identity.email} ${personalPubKey}
       tha@danskecommodities.com ${workPubKey}
+      claude@skovlund.dev ${claudePubKey}
     '';
 }

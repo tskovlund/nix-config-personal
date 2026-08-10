@@ -7,6 +7,7 @@ let
   moduleFiles = {
     agenix-darwin-workaround = ./agenix-darwin-workaround.nix;
     cambr = ./cambr.nix;
+    claude-github = ./claude-github.nix;
     cloudflare = ./cloudflare.nix;
     dotfiles = ./dotfiles.nix;
     github = ./github.nix;
