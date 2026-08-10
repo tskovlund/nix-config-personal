@@ -37,49 +37,17 @@ in
       # Force SSH for all GitHub URLs (HTTPS clone URLs become SSH transparently)
       url."git@github.com:".insteadOf = "https://github.com/";
     };
-
-    # Work identity override for dc-main repos.
-    # When a repo has a remote matching dc-main, use the work email and
-    # the work RSA signing key (deployed via ~/.ssh/config.local on work machines).
-    #
-    # Two entries are needed because git's hasconfig does NOT resolve
-    # url.*.insteadOf when matching — it checks the raw remote URL as
-    # stored in .git/config.  Repos cloned via HTTPS have the https://
-    # form; repos cloned via SSH (or with insteadOf already active) have
-    # the git@ form.
-    includes =
-      let
-        workContents = {
-          user = {
-            email = "tha@danskecommodities.com";
-            signingKey = "${homeDir}/.ssh/id_rsa_github.pub";
-          };
-        };
-      in
-      [
-        {
-          condition = "hasconfig:remote.*.url:https://github.com/dc-main/**";
-          contents = workContents;
-        }
-        {
-          condition = "hasconfig:remote.*.url:git@github.com:dc-main/**";
-          contents = workContents;
-        }
-      ];
   };
 
   # Allowed signers file for signature verification.
-  # Include both personal (ed25519) and work (RSA) keys so that
-  # `git log --show-signature` verifies commits from either identity.
+  # `git log --show-signature` verifies commits against these keys.
   home.file.".ssh/allowed_signers".text =
     let
       personalPubKey = builtins.readFile ../files/${keyName}.pub;
-      workPubKey = builtins.readFile ../files/id_rsa_github.pub;
       claudePubKey = builtins.readFile ../files/id_ed25519_claude.pub;
     in
     ''
       ${identity.email} ${personalPubKey}
-      tha@danskecommodities.com ${workPubKey}
       claude@skovlund.dev ${claudePubKey}
     '';
 }
