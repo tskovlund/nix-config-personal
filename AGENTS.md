@@ -83,3 +83,18 @@ nix flake check
 cd ~/repos/nix-config
 make switch PERSONAL_INPUT=path:$HOME/repos/nix-config-personal
 ```
+
+## Claude's GitHub identity
+
+Claude-authored work uses the machine account `tskovlund-claude` instead of
+Thomas's identity, so PRs are honestly attributed and Thomas is formally
+requested as reviewer. The pieces (all wired in `home/claude-github.nix`):
+
+- **SSH**: pushes over the `github.com-claude` host alias authenticate as the
+  bot (`git@github.com-claude:tskovlund/<repo>.git`); plain `github.com`
+  remains Thomas.
+- **gh CLI**: `gh-claude` runs gh under `~/.config/gh-claude`, isolated from
+  Thomas's session.
+- **Commits**: authored and signed as `Claude (Skovlund) <claude@skovlund.dev>`
+  with `~/.ssh/id_ed25519_claude` (in `allowed_signers`, registered as the
+  bot's signing key on GitHub).
