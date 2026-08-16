@@ -12,4 +12,4 @@ concurrency:
 
 jobs:
   check:
-    uses: tskovlund/.github/.github/workflows/nix-check.yml@8f258c859b89dad35e2148f0fac961aa9490a4a4 # main
+    uses: tskovlund/.github/.github/workflows/nix-check.yml@259fba7c66f5c8262d6cd5bd0bf73922b2e6fa3d # main
