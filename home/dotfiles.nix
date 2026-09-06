@@ -18,6 +18,8 @@ in
 
   # Code conventions — plain file (not secret), deployed to ~/.claude/CONVENTIONS.md.
   # Referenced by the global CLAUDE.md so every Claude Code session has access.
-  # To update: edit files/CONVENTIONS.md, commit, and `make switch`.
-  home.file.".claude/CONVENTIONS.md".source = ../files/CONVENTIONS.md;
+  # The source is the repo-root CONVENTIONS.md, which tskovlund/.github syncs
+  # via PR. Never edit it here: change conventions/ in dot-github and let the
+  # sync land, then `make switch`.
+  home.file.".claude/CONVENTIONS.md".source = ../CONVENTIONS.md;
 }

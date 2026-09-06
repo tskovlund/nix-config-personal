@@ -26,7 +26,7 @@ Deploy with `make switch` in nix-config. Skills are cached per session — verif
 
 ## Style
 
-Skills carry only what the model can't derive: facts it has no way to know, Thomas's preferences among defensible options, guardrails earned from real incidents, and routing glue between sibling skills. No procedures the model already knows, no ceremony sections, no restating [CONVENTIONS.md](../../dot-github/CONVENTIONS.md). See [skill](skill.md) for the full standard.
+Skills carry only what the model can't derive: facts it has no way to know, Thomas's preferences among defensible options, guardrails earned from real incidents, and routing glue between sibling skills. No procedures the model already knows, no ceremony sections, no restating [CONVENTIONS.md](../CONVENTIONS.md). See [skill](skill.md) for the full standard.
 
 ## Sensitive data
 

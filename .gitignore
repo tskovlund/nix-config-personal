@@ -1,5 +1,3 @@
-# Plaintext sources of agenix-encrypted secrets.
-# These are local working copies used for editing/re-encrypting.
-# Only the .age files should be committed.
+# Plaintext source of the agenix-encrypted global Claude context.
+# A local working copy used for editing/re-encrypting; only the .age file is committed.
 files/CLAUDE.md
-files/skill-*.md
