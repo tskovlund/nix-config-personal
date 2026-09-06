@@ -37,7 +37,9 @@ committed to that repo — no nix involved.
 A skill is context the model doesn't have, not a tutorial for the model. Write
 only:
 
-1. **Facts it can't know** — IDs, paths, repo lists, which gate a repo uses.
+1. **Facts it can't know** — IDs, paths, which gate a repo uses. Facts shared by
+   several skills (the repo list, gates, visibility) live once in
+   `files/REPOS.md` → `~/.claude/REPOS.md`; point there, don't restate.
 2. **Thomas's preferences** — the choice he'd make where several are defensible.
 3. **Guardrails earned from incidents** — with enough of the why that the rule
    survives a plausible-sounding reason to break it.

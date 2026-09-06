@@ -28,8 +28,7 @@ the work.
 
 ## Privacy guardrail
 
-These repos are **public**: nix-config, nix-config-personal, qed, mcp-score,
-skovlund.dev, kammer, dot-github, eliza-config, adventofcode, academy-fx.
+Most repos are **public**; per-repo visibility is in `~/.claude/REPOS.md`.
 
 Never put strategy, revenue, pricing, or personal details in a public repo's
 issues — not in titles, bodies, or comments. That material goes to Linear or to
