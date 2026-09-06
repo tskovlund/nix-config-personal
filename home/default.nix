@@ -12,7 +12,6 @@ let
     dotfiles = ./dotfiles.nix;
     github = ./github.nix;
     grafana = ./grafana.nix;
-    mcp-memory = ./mcp-memory.nix;
     miles = ./miles.nix;
     resend = ./resend.nix;
     restic = ./restic.nix;
