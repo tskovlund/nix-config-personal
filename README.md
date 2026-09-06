@@ -20,6 +20,7 @@ nix-config-personal/
 │   └── *.age           # Encrypted secrets
 ├── files/
 │   └── *.pub           # SSH public keys (plaintext)
+├── CONVENTIONS.md      # Synced from tskovlund/.github, deployed to ~/.claude/
 ├── skills/
 │   ├── README.md       # Skills reference (what each skill does)
 │   └── *.md            # AI agent skill files

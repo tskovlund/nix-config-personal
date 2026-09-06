@@ -38,7 +38,8 @@ Secrets are age-encrypted in `secrets/`. A single portable age key (`~/.config/a
 
 - `secrets/secrets.nix` — maps `.age` files to recipient public keys
 - `secrets/*.age` — encrypted secret files
-- `files/` — plaintext public keys and non-secret files. Plaintext working copies of encrypted content are gitignored; only `.age` files are committed.
+- `files/` — plaintext SSH public keys. The plaintext working copy of the encrypted global context (`files/CLAUDE.md`) is gitignored; only the `.age` file is committed.
+- `CONVENTIONS.md` — synced from [tskovlund/.github](https://github.com/tskovlund/.github) by its `sync-conventions` workflow (via PR) and deployed as-is to `~/.claude/CONVENTIONS.md` by `home/dotfiles.nix`. Never edit it here — change `conventions/` in dot-github and let the sync land.
 - `skills/` — Claude Code skill files (plaintext, deployed to `~/.claude/skills/` by `home/skills.nix`). Adding or renaming a skill means updating the `managedSkills` list there — its cleanup activation uses that list to delete stale directories.
 
 ### Adding a new secret
