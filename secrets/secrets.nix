@@ -25,13 +25,4 @@ in
   "restic-b2-env.age".publicKeys = [ thomas ];
   "restic-password.age".publicKeys = [ thomas ];
   "cambr-anthropic-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-telegram-bot-token.age".publicKeys = [ thomas ];
-  "zeroclaw-gateway-token.age".publicKeys = [ thomas ];
-  "zeroclaw-brave-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-linear-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-notion-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-openweathermap-api-key.age".publicKeys = [ thomas ];
-  "zeroclaw-newsapi-key.age".publicKeys = [ thomas ];
-  "zeroclaw-finnhub-api-key.age".publicKeys = [ thomas ];
 }

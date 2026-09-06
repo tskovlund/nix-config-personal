@@ -5,8 +5,6 @@ let
   homeDir = config.home.homeDirectory;
 in
 {
-  imports = [ ./zeroclaw.nix ];
-
   # Decrypt SSH private key via agenix.
   age.secrets.${keyName} = {
     file = ../secrets/${keyName}.age;
