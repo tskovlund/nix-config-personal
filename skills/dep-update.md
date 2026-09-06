@@ -11,15 +11,9 @@ argument-hint: "[repo or dependency]"
 
 # Dependency updates
 
-Per-repo command and gate — the gate is the part that varies and matters.
-
-| Repo             | Update                                 | Gate                                                                  |
-| ---------------- | -------------------------------------- | --------------------------------------------------------------------- |
-| mcp-score, cambr | `uv lock --upgrade`                    | `devbox run check` (pytest + ruff + pyright)                          |
-| nix-config       | `nix flake update`                     | `nix flake check`, then build the darwin closure **before** switching |
-| kammer           | `mix deps.update` inside `nix develop` | `mix precommit` + audit                                               |
-| skovlund.dev     | `pnpm update` via devbox               | the repo's `check` target                                             |
-| qed              | lake manifest, by hand                 | small surface — read the diff                                         |
+The update command and the gate vary per repo, and the gate is the part that
+matters. Both are in `~/.claude/REPOS.md` — run the gate exactly as listed
+there, not a subset.
 
 ## Conventions
 

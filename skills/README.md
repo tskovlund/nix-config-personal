@@ -28,6 +28,8 @@ Deploy with `make switch` in nix-config. Skills are cached per session — verif
 
 Skills carry only what the model can't derive: facts it has no way to know, Thomas's preferences among defensible options, guardrails earned from real incidents, and routing glue between sibling skills. No procedures the model already knows, no ceremony sections, no restating [CONVENTIONS.md](../CONVENTIONS.md). See [skill](skill.md) for the full standard.
 
+Facts shared by several skills — the repo list, per-repo gates and update commands, visibility — live once in [`files/REPOS.md`](../files/REPOS.md), deployed to `~/.claude/REPOS.md` by [`home/dotfiles.nix`](../home/dotfiles.nix). Skills point there rather than restating it.
+
 ## Sensitive data
 
 Skills are plaintext in a public repo. Do **not** put secrets, API keys, revenue details, or strategy in skill files. Sensitive context belongs in the encrypted `~/.claude/CLAUDE.md` (managed via agenix).

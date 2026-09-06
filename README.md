@@ -19,7 +19,8 @@ nix-config-personal/
 │   ├── secrets.nix     # Agenix recipients (age public keys)
 │   └── *.age           # Encrypted secrets
 ├── files/
-│   └── *.pub           # SSH public keys (plaintext)
+│   ├── *.pub           # SSH public keys (plaintext)
+│   └── REPOS.md        # Canonical repo list, deployed to ~/.claude/
 ├── CONVENTIONS.md      # Synced from tskovlund/.github, deployed to ~/.claude/
 ├── skills/
 │   ├── README.md       # Skills reference (what each skill does)

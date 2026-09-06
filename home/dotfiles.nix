@@ -22,4 +22,10 @@ in
   # via PR. Never edit it here: change conventions/ in dot-github and let the
   # sync land, then `make switch`.
   home.file.".claude/CONVENTIONS.md".source = ../CONVENTIONS.md;
+
+  # Canonical repo list (GitHub path, visibility, stack, gate, update command),
+  # deployed to ~/.claude/REPOS.md. The housekeeping, issues, and dep-update
+  # skills reference it instead of each carrying a copy that drifts.
+  # To update: edit files/REPOS.md, commit, and `make switch`.
+  home.file.".claude/REPOS.md".source = ../files/REPOS.md;
 }
