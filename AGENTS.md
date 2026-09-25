@@ -72,7 +72,7 @@ The flake provides a dev shell with `nixfmt`, `statix`, and `deadnix`. Enter it 
 
 Git commands that trigger hooks need those tools, so prefix with `nix develop --command` when not already in the dev shell.
 
-Branch protection matches nix-config: "Protect main" ruleset, no force push (owner can bypass), no deletion, Copilot auto-review, required CI status checks.
+Branch protection matches nix-config: "Protect main" ruleset, no force push (owner can bypass), no deletion, required CI status checks.
 
 ## Testing
 
